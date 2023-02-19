@@ -1,0 +1,9 @@
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+hook_add = '''exec 'source ' . g:rc_dir . '/settings/coc-vim.vim' '''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
