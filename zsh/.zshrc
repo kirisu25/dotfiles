@@ -114,7 +114,6 @@ alias grep='grep --color=auto'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
-alias dot='cd ~/dotfiles'
 #apt
 alias ai='sudo apt install'
 alias au='sudo apt update'
