@@ -128,10 +128,8 @@ alias rm='rm -i'
 #---------------------------------------------------
 autoload -Uz compinit && compinit
 
-# 小文字でも大文字にマッチ
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# 補完候補をTabや矢印で選択可能
 zstyle ':completion:*:default' menu select=1
 #---------------------------------------------------
 ###high-light
