@@ -1,9 +1,6 @@
-###basic
-HISTFILE=~/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
-
+#---------------------------------------------------
 ### Added by Zinit's installer
+#---------------------------------------------------
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
@@ -57,7 +54,7 @@ zle -N incremental_search_history
 bindkey "^R" incremental_search_history
 
 #Interactive ripgrep
-fgrep() {
+fzgrep() {
   INITIAL_QUERY=""
   RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
   FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'" \
@@ -92,10 +89,63 @@ export ASDF_CONFIG_FILE=~/dotfiles/asdf/.asdfrc
 zinit ice as"program" from"gh-r"
 zinit light starship/starship
 
-#enable starship
+#gotop
+zinit ice as"program" from"gh-r"
+zinit light cjbassi/gotop
+
+#zellij
+zinit ice as"program" from"gh-r"
+zinit light zellij-org/zellij
+#---------------------------------------------------
+###basic
+#---------------------------------------------------
+HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+##alias
+#ls
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias grep='grep --color=auto'
+#cd
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias dot='cd ~/dotfiles'
+#apt
+alias ai='sudo apt install'
+alias au='sudo apt update'
+alias ar='sudo apt remove'
+#safety
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+#---------------------------------------------------
+###completion
+#---------------------------------------------------
+autoload -Uz compinit && compinit
+
+# 小文字でも大文字にマッチ
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# 補完候補をTabや矢印で選択可能
+zstyle ':completion:*:default' menu select=1
+#---------------------------------------------------
+###high-light
+#---------------------------------------------------
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+
+zstyle ':completion:*' list-colors $LSCOLORS
+#---------------------------------------------------
+###enable starship
+#---------------------------------------------------
 #starship is set to the default prompt.
 #If the zsh default prompt is not loaded, starship 
 #will not start properly. If it doesn't start well,
 #`prompt default` should be mentioned.
-prompt default
+#prompt default
+export STARSHIP_CONFIG=~/.config/starship.toml
 eval "$(starship init zsh)"
