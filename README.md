@@ -43,7 +43,7 @@ mkdir ~/.vim
 ln -s ~/src/github.com/kirisu25/dotfiles/vim/* ~/.vim/
 ```
 
-##starship setting
+## starship setting
 
 ### add commands
 ```sh
