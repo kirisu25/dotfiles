@@ -6,7 +6,7 @@
 mkdir ~/.ssh
 ssh-keygen -t rsa
 ```
-### Add SSH key [github](https://github.com/settings/ssh)
+### [Add SSH key](https://github.com/settings/ssh)
 
 ### Check ssh conecting
 ```sh
