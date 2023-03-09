@@ -102,7 +102,10 @@ zinit light zellij-org/zellij
 HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
-
+##wsl2 path setting
+export PATH=~/.cache:$PATH
+export EDITOR=vim
+export export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 ##alias
 #ls
 alias ls='ls --color=auto'
@@ -114,6 +117,7 @@ alias grep='grep --color=auto'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
+alias ~='cd ~'
 #apt
 alias ai='sudo apt install'
 alias au='sudo apt update'
@@ -122,6 +126,8 @@ alias ar='sudo apt remove'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+#w3m
+alias ggl='w3m https://www.google.co.jp'
 #---------------------------------------------------
 ###completion
 #---------------------------------------------------
@@ -146,3 +152,25 @@ zstyle ':completion:*' list-colors $LSCOLORS
 #prompt default
 export STARSHIP_CONFIG=~/.config/starship.toml
 eval "$(starship init zsh)"
+#---------------------------------------------------
+###zellij
+#---------------------------------------------------
+#zellij attach --index 0 --create
+#---------------------------------------------------
+###ranger
+#---------------------------------------------------
+function ranger() {
+  if [ -z "$RANGER_LEVEL" ]; then
+    /usr/bin/ranger $@
+  else
+    exit
+  fi
+}
+#---------------------------------------------------
+###python
+#---------------------------------------------------
+function chpwd() {
+    if [ -d .venv ]; then
+        source .venv/bin/activate
+    fi
+}

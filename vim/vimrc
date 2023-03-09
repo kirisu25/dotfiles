@@ -1,3 +1,6 @@
+"------------------------------
+"dein
+"------------------------------
 " set up the dein.vim directory
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -23,51 +26,18 @@ if dein#load_state(s:dein_dir)
   call dein#save_state()
 endif
 
-" automatically install any plug-ins that need to be installed.
+" automatically install/uninstall any plug-ins that need to be installed.
 if dein#check_install()
   call dein#install()
 endif
 
-"vim setting
-set encoding=utf-8
-set number
-set noswapfile
-set nobackup
-set nowritebackup
-set wrap
-filetype indent on
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set clipboard+=unnamedplus
-set termguicolors
-set autoindent
-set splitright
-set hidden
-set cmdheight=2
-set updatetime=300
-set helplang=ja
-set formatoptions+=mMj
-set ambiwidth=double
-set display+=lastline
-set laststatus=2
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
+endif
 
-"terminal colors
-syntax enable
-set background=dark
-colorscheme material-theme
+runtime! init/*.vim
+runtime! ddc/ddc_setting.vim
 
-"key map
-let mapleader = "\<Space>"
-inoremap <silent> jj <ESC>
-nnoremap <Leader>a ggVG
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>e :Lex<CR>
-nnoremap <Leader>4 $
-nnoremap j gj
-nnoremap k gk
 
-"vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'base16'
