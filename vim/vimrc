@@ -4,7 +4,11 @@
 " set up the dein.vim directory
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let g:rc_dir = expand('~/.vim')
+if has("unix")
+    let g:rc_dir = expand('~/.vim')
+elseif  has("win64")
+    let g:rc_dir = expand("~/vimfilef")
+endif
 
 " automatic installation of dein.vim
 if !isdirectory(s:dein_repo_dir)
