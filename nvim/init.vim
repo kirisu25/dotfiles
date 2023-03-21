@@ -1,5 +1,5 @@
 " set up the dein.vim directory
-let s:dein_dir = expand('~/.cache/dein')
+let s:dein_dir = expand('~/.config/nvim/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let g:rc_dir = expand('~/.config/nvim')
 
@@ -28,66 +28,15 @@ if dein#check_install()
   call dein#install()
 endif
 
-"vim setting
-set encoding=utf-8
-set number
-set noswapfile
-set nobackup
-set nowritebackup
-filetype indent on
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set clipboard+=unnamedplus
-set termguicolors
-set autoindent
-set splitright
-set hidden
-set cmdheight=2
-set updatetime=300
-set pumblend=10
-
-"key map
-let mapleader = "\<Space>"
-inoremap <silent> jj <ESC>
-nnoremap <Leader>a ggVG
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>e :Lex<CR>
-nnoremap <Leader>4 $
-
-"Coc keymap
-nnoremap <<silent> K :call ShowDocumentation()<CR>
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-nnoremap <silent> <space><space> :<C-u>CocList<CR>
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-"<TAB> or <S+TAB>
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-
-"vim-airline
-let g:airline_theme = 'term'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-
-" :grep -> ripgrep
-if executable("rg")
-    let &grepprg = 'rg --vimgrep --hidden > /dev/null'
-    set grepformat=%f:%l:%c:%m
+" plugin remove check {{{
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
 endif
+" }}}
+
+runtime setting/basic.vim
+runtime setting/keymap.vim
+runtime setting/terminal_color.vim
+runtime setting/terminal_config.vim

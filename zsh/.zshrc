@@ -102,10 +102,6 @@ zinit light zellij-org/zellij
 HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
-##wsl2 path setting
-export PATH=~/.cache:$PATH
-export EDITOR=vim
-export export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 ##alias
 #ls
 alias ls='ls --color=auto'
@@ -127,7 +123,11 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 #w3m
-alias ggl='w3m https://www.google.co.jp'
+alias ggrks='w3m https://www.google.co.jp'
+#zellij
+alias zj='zellij'
+#local config
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 #---------------------------------------------------
 ###completion
 #---------------------------------------------------
@@ -174,3 +174,5 @@ function chpwd() {
         source .venv/bin/activate
     fi
 }
+
+
