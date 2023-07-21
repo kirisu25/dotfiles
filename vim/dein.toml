@@ -1,59 +1,108 @@
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-[[plusins]]
-repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = 'markonm/traces.vim'
-
-[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
-repo ='Shougo/ddc.vim'
-
-#[[plugins]]
-#repo = 'Shougo/pum.vim'
-
-#[[plugins]]
-#repo = 'Shougo/ddc-around'
+repo = 'Shougo/ddc.vim'
+hook_add = '''
+call ddc#custom#patch_global('ui', 'pum')
+call ddc#custom#patch_global('sources', [
+\ 'vim-lsp',
+\ 'around',
+\ 'file'])
+call ddc#custom#patch_global('sourceOptions', {
+ \ '_': {
+ \   'matchers': ['matcher_head'],
+ \   'sorters': ['sorter_rank'],
+ \   'converters': ['converter_remove_overlap'],
+ \ },
+ \ 'around': {'mark': 'Ar'},
+ \ 'vim-lsp': {
+ \   'mark': 'LSP', 
+ \   'matchers': ['matcher_head'],
+ \   'forceCompletionPattern': '\.|:|->|"\w+/*'
+ \ },
+ \ 'file': {
+ \   'mark': 'file',
+ \   'isVolatile': v:true, 
+ \   'forceCompletionPattern': '\S/\S*'
+ \ }})
+'''
 
 [[plugins]]
-repo = 'Shougo/ddc-ui-native'
+repo = 'Shougo/pum.vim'
+hook_add = '''
+inoremap <silent><expr> <TAB>
+    \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+    \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+    \ '<TAB>' : ddc#map#manual_complete()
+inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+'''
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
 
 [[plugins]]
-repo = 'Shougo/ddc-source-around'
+repo = 'Shougo/ddu.vim'
+
+[[plugins]]
+repo = 'Shun/ddc-source-vim-lsp'
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
 
-#[[plugins]]
-#repo = 'Shougo/ddc-sorter_rank'
-
-#[[plugins]]
-#repo = 'Shougo/ddc-converter_remove_overlap'
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
 
 [[plugins]]
-repo = 'shun/ddc-source-vim-lsp'
+repo = 'Shougo/ddc-around'
+
+[[plugins]]
+repo = 'Shougo/ddc-file'
+
+[[plugins]]
+repo = 'Shougo/ddc-converter_remove_overlap'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+hook_add = 'set helplang=ja'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline_theme = 'tokyonight'
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+'''
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+    let g:lsp_diagnostics_enable = 1
+    let g:lsp_diagnostics_echo_cursor = 1
+    nmap <Leader>K <plug>(lsp-hover)
+    nmap <Leader>[ <plug>(lsp-previous-diagnostic)
+    nmap <Leader>] <plug>(lsp-next-diagnostic)
+    nmap <silent> <f2> :LspRename<CR>
+    nmap <silent> ld :LspDefinition<CR>
+    nmap <Leader>d :LspTypeDefinition<CR>
+'''
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
-repo = 'biosugar0/vim-popyank'
+repo = 'mattn/vim-goimports'
+hook_add = '''
+    let g:goimports = 1
+'''
 
 [[plugins]]
-repo = 'skanehira/denops-translate.vim'
-
-#[[plugins]]
-#repo = 'fatih/vim-go'
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
+repo = 'ghifarit53/tokyonight-vim'
+hook_add = '''
+    set termguicolors
+    let g:tokyonight_style = 'storm' " available: night, storm
+    let g:tokyonight_enable_italic = 1
+    colorscheme tokyonight
+'''
