@@ -34,6 +34,20 @@ zinit ice as"program" from"gh-r" \
   pick"bat/bat"
 zinit light sharkdp/bat
 
+#exa
+zinit ice as"program" from"gh-r"\
+    mv"bin/exa* -> exa" \
+    pick"exa/exa"
+zinit light ogham/exa
+if [[ $(command -v exa) ]]; then
+    alias ls='exa --icons --git'
+    alias la='exa -a --icons --git'
+    alias ll='exa -aahl --icons --git'
+    alias lt='exa -T -L 3 -a -I "node_modules|.git|.chace" --icons'
+    alias lta='exa -T -a -I "node_modules|.git|.chace" --icons | less -r'
+    alias lc='clear && ls'
+fi
+
 #ripgrep
 zinit ice as"program" from"gh-r" \
   mv"ripgrep* -> rg" \
@@ -96,6 +110,7 @@ zinit light cjbassi/gotop
 #zellij
 zinit ice as"program" from"gh-r"
 zinit light zellij-org/zellij
+
 #---------------------------------------------------
 ###basic
 #---------------------------------------------------
