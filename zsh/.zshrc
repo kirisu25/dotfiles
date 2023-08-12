@@ -81,7 +81,7 @@ alias ggrks='w3m https://www.google.co.jp'
 #zellij
 alias zj='zellij'
 #local config
-ZSH_DIR="${HOME}/zsh_config"
+ZSH_DIR="${HOME}/zsh"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
     for file in ${ZSH_DIR}/**/*.zsh; do

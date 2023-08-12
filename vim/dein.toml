@@ -8,6 +8,7 @@ call ddc#custom#patch_global('ui', 'pum')
 call ddc#custom#patch_global('sources', [
 \ 'vim-lsp',
 \ 'around',
+\ 'skkeleton',
 \ 'file'])
 call ddc#custom#patch_global('sourceOptions', {
  \ '_': {
@@ -25,7 +26,14 @@ call ddc#custom#patch_global('sourceOptions', {
  \   'mark': 'file',
  \   'isVolatile': v:true, 
  \   'forceCompletionPattern': '\S/\S*'
- \ }})
+ \ },
+ \ 'skkeleton': {
+ \   'mark': 'skk',
+ \   'matchers': ['skkeleton'],
+ \   'sorters': [],
+ \   'minAutoCompleteLength': 2,
+ \   },
+ \})
 '''
 
 [[plugins]]
@@ -62,6 +70,14 @@ repo = 'Shougo/ddc-file'
 repo = 'Shougo/ddc-converter_remove_overlap'
 
 [[plugins]]
+repo = 'vim-skk/skkeleton'
+hook_add = '''
+    call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
+    imap <C-j> <Plug>(skkeleton-toggle)
+    cmap <C-j> <Plug>(skkeleton-toggle)
+'''
+
+[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 hook_add = 'set helplang=ja'
 
@@ -94,9 +110,6 @@ repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
-hook_add = '''
-    let g:goimports = 1
-'''
 
 [[plugins]]
 repo = 'ghifarit53/tokyonight-vim'

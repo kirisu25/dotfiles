@@ -48,6 +48,8 @@ zinit light x-motemen/ghq
 #asdf
 zinit light asdf-vm/asdf
 export ASDF_CONFIG_FILE=~/dotfiles/asdf/.asdfrc
+export ASDF_DIR=~/.local/share/zinit/plugins/asdf-vm---asdf
+fpath=(${ASDF_DIR}/completions $fpath)
 
 #starship
 zinit ice as"program" from"gh-r"
