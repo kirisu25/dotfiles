@@ -50,6 +50,108 @@ repo = 'Shougo/ddc-ui-pum'
 
 [[plugins]]
 repo = 'Shougo/ddu.vim'
+hook_add = '''
+call ddu#custom#patch_global({
+    \   'ui': 'filer',
+    \   'sources': [{'name': 'file', 'params': {}}],
+    \   'sourceOptions': {
+    \     '_': {
+    \       'columns': ['filename'],
+    \     },
+    \   },
+    \   'kindOptions': {
+    \     'file': {
+    \       'defaultAction': 'open',
+    \     },
+    \   },
+    \   'uiParams': {
+    \   'filer': {
+    \       'winWidth': 40,
+    \       'split': 'vertical',
+    \       'splitDirection': 'topleft',
+    \       },
+    \   },
+    \ })
+autocmd TabEnter,CursorHold,FocusGained <buffer>
+	\ call ddu#ui#filer#do_action('checkItems')
+
+autocmd FileType ddu-filer call s:ddu_filer_my_settings()
+function! s:ddu_filer_my_settings() abort
+nnoremap <buffer><silent><expr> <CR>
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow'})<CR>" :
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction')<CR>"
+
+  nmap <buffer><silent><expr> t
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow'})<CR>" :
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'open', 'params': {'command': 'tabe'}})<CR>"
+
+  nmap <buffer><silent><expr> v
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow'})<CR>" :
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>"
+
+  nmap <buffer><silent><expr> <Space>
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow'})<CR>" :
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>"
+
+  nmap <buffer><silent> o
+    \ <Cmd>call ddu#ui#filer#do_action('expandItem',
+    \ {'mode': 'toggle'})<CR>
+
+  nmap <buffer><silent> <Esc>
+    \ <Cmd>call ddu#ui#filer#do_action('quit')<CR>
+
+  nmap <buffer><silent> q
+    \ <Cmd>call ddu#ui#filer#do_action('quit')<CR>
+
+  nmap <buffer><silent> ..
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow', 'params': {'path': '..'}})<CR>
+
+  nmap <buffer><silent> c
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'copy'})<CR>
+
+  nmap <buffer><silent> p
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'paste'})<CR>
+
+  nmap <buffer><silent> d
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'delete'})<CR>
+
+  nmap <buffer><silent> r
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'rename'})<CR>
+
+  nmap <buffer><silent> mv
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'move'})<CR>
+
+  nmap <buffer><silent> n
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'newFile'})<CR>
+
+  nmap <buffer><silent> mk
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'newDirectory'})<CR>
+
+  nmap <buffer><silent> yy
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'yank'})<CR>
+endfunction
+
+nmap <silent> ;d <Cmd>call ddu#start({
+\   'name': 'filer',
+\   'searchPath': expand('%:p'),
+\ })<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-filer'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+
+[[plugins]]
+repo = 'Shougo/ddu-column-filename'
 
 [[plugins]]
 repo = 'Shun/ddc-source-vim-lsp'
@@ -112,6 +214,9 @@ repo = 'mattn/vim-lsp-settings'
 repo = 'mattn/vim-goimports'
 
 [[plugins]]
+repo = 'mattn/vim-maketable'
+
+[[plugins]]
 repo = 'ghifarit53/tokyonight-vim'
 hook_add = '''
     set termguicolors
@@ -119,3 +224,14 @@ hook_add = '''
     let g:tokyonight_enable_italic = 1
     colorscheme tokyonight
 '''
+
+[[plugins]]
+repo =  'skanehira/preview-markdown.vim'
+hook_add = '''
+    let g:preview_markdown_vertical = 1
+    let g:preview_markdown_auto_update = 1
+    nmap <Leader>p :PreviewMarkdown
+'''
+
+[[plugins]]
+repo = 'cohama/lexima.vim'

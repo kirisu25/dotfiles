@@ -77,7 +77,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 #w3m
-alias ggrks='w3m https://www.google.co.jp'
+alias w3='w3m https://www.google.co.jp'
 #zellij
 alias zj='zellij'
 #local config

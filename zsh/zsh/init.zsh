@@ -63,6 +63,12 @@ zinit light cjbassi/gotop
 zinit ice as"program" from"gh-r"
 zinit light zellij-org/zellij
 
+#mdr
+zinit ice as"program" from"gh-r" \
+    mv"mdr* -> mdr" \
+    pick"mdr/mdr"
+zinit light MichaelMure/mdr
+
 #-----------------
 # tool setting
 #-----------------
