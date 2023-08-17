@@ -198,13 +198,7 @@ hook_add = '''
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
     let g:lsp_diagnostics_enable = 1
-    let g:lsp_diagnostics_echo_cursor = 1
-    nmap <Leader>K <plug>(lsp-hover)
-    nmap <Leader>[ <plug>(lsp-previous-diagnostic)
-    nmap <Leader>] <plug>(lsp-next-diagnostic)
-    nmap <silent> <f2> :LspRename<CR>
-    nmap <silent> ld :LspDefinition<CR>
-    nmap <Leader>d :LspTypeDefinition<CR>
+    let g:lsp_diagnostics_echo_cursor = 0
 '''
 
 [[plugins]]
@@ -230,8 +224,16 @@ repo =  'skanehira/preview-markdown.vim'
 hook_add = '''
     let g:preview_markdown_vertical = 1
     let g:preview_markdown_auto_update = 1
-    nmap <Leader>p :PreviewMarkdown
 '''
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'ryicoh/deepl.vim'
+hook_add = '''
+let g:deepl#endpoint = "https://api-free.deepl.com/v2/translate"
+let g:deepl#auth_key = $DeepL_API_Key
+vmap t<C-j> <Cmd>call deepl#v("JA")<CR>
+vmap t<C-e> <Cmd>call deepl#v("EN")<CR>
+'''
