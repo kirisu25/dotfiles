@@ -1,3 +1,23 @@
+format = "$os$all"
+right_format = '''
+$cmd_duration
+$time
+$battery
+'''
+
+[fill]
+symbol = ""
+
+[time]
+disabled = false
+style = "bold #d3d3d3"
+format = "[$time]($style)"
+time_format = "%m/%d %R "
+utc_time_offset = "+9"
+
+[line_break]
+desabled = true
+
 [aws]
 symbol = "  "
 
@@ -16,6 +36,7 @@ symbol = " "
 [directory]
 read_only = " 󰌾"
 style = "bold #50fa7b"
+truncation_symbol = ".../"
 
 [docker_context]
 symbol = " "
@@ -62,7 +83,11 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
-symbol = "󰍛 "
+symbol = "󰍛"
+disabled = true
+threshold = -1
+style = "bold #50fa7b"
+format = "$symbol[${ram}]($style) "
 
 [meson]
 symbol = "󰔷 "
@@ -75,6 +100,11 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+
+[os]
+disabled = false
+style = "bold #ff8c00"
+format = "[$symbol]($style)"
 
 [os.symbols]
 Alpaquita = " "
@@ -147,7 +177,72 @@ success_symbol = "[](bold #50fa7b)"
 
 [cmd_duration]
 style = "bold #f1fa8c"
+format = "[$duration ]($style)"
 
 [username]
 format = "[$user]($style) on "
 style_user = "bold #8be9fd"
+show_always = true
+
+[battery]
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 10
+style = "bold #ff5555"
+charging_symbol = "󰢜"
+discharging_symbol = "󰁺"
+
+[[battery.display]]
+threshold = 20
+style = "bold #ffd700"
+charging_symbol = "󰂆"
+discharging_symbol = "󰁻"
+
+[[battery.display]]
+threshold = 30
+style = "bold #ffd700"
+charging_symbol = "󰂇"
+discharging_symbol = "󰁼"
+
+[[battery.display]]
+threshold = 40
+style = "bold #50fa7b"
+charging_symbol = "󰂈"
+discharging_symbol = "󰁽"
+
+[[battery.display]]
+threshold = 50
+style = "bold #50fa7b"
+charging_symbol = "󰢝"
+discharging_symbol = "󰁾"
+
+[[battery.display]]
+threshold = 60
+style = "bold #50fa7b"
+charging_symbol = "󰂉"
+discharging_symbol = "󰁿"
+
+[[battery.display]]
+threshold = 70
+style = "bold #50fa7b"
+charging_symbol = "󰢞"
+discharging_symbol = "󰂀"
+
+[[battery.display]]
+threshold = 80
+style = "bold #50fa7b"
+charging_symbol = "󰂊"
+discharging_symbol = "󰂁"
+
+[[battery.display]]
+threshold = 90
+style = "bold #50fa7b"
+charging_symbol = "󰂋"
+discharging_symbol = "󰂂"
+
+[[battery.display]]
+threshold = 100
+style = "bold #50fa7b"
+charging_symbol = "󰂅"
+discharging_symbol = "󰁹"

@@ -13,7 +13,8 @@ filetype indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set clipboard+=unnamedplus
+set clipboard&
+set clipboard^=unnamedplus
 set autoindent
 set smartindent
 set splitright
