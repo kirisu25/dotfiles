@@ -26,4 +26,3 @@ set ambiwidth=double
 set display+=lastline
 set backspace=indent,eol,start
 set wildmenu
-
