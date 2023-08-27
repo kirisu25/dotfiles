@@ -97,3 +97,10 @@ if [[ $(command -v exa) ]]; then
     alias lta='exa -T -a -I "node_modules|.git|.chace" --icons | less -r'
     alias lc='clear && ls'
 fi
+
+# tmux
+if [[ $(command -v tmux) ]]; then
+    if [ $SHLVL = 1 ]; then
+        tmux
+    fi
+fi
