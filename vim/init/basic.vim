@@ -19,7 +19,7 @@ set autoindent
 set smartindent
 set splitright
 set hidden
-set cmdheight=2
+set cmdheight=1
 set updatetime=300
 set formatoptions+=mMj
 set ambiwidth=double
