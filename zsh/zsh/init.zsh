@@ -99,8 +99,8 @@ if [[ $(command -v exa) ]]; then
 fi
 
 # tmux
-if [[ $(command -v tmux) ]]; then
-    if [ $SHLVL = 1 ]; then
-        tmux
-    fi
-fi
+#if [[ $(command -v tmux) ]]; then
+#    if [ $SHLVL = 1 ]; then
+#        tmux
+#    fi
+#fi
