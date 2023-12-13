@@ -68,10 +68,6 @@ alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ~='cd ~'
-#apt
-alias ai='sudo apt install'
-alias au='sudo apt update'
-alias ar='sudo apt remove'
 #safety
 alias cp='cp -i'
 alias mv='mv -i'
@@ -81,10 +77,9 @@ alias w3='w3m https://www.google.co.jp'
 #zellij
 alias zj='zellij'
 #local config
-ZSH_DIR="${HOME}/zsh"
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
-    for file in ${ZSH_DIR}/**/*.zsh; do
+[ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
+if [ -d $ZDOTDIR ] && [ -r $ZDOTDIR ] && [ -x $ZDOTDIR ]; then
+    for file in ${ZDOTDIR}/**/*.zsh; do
         [ -r $file ] && source $file
     done
 fi
@@ -96,17 +91,17 @@ fi
 #will not start properly. If it doesn't start well,
 #`prompt default` should be mentioned.
 #prompt default
-export STARSHIP_CONFIG=~/.config/starship.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 #---------------------------------------------------
 ###ranger
 #---------------------------------------------------
-if [[ $(command -v ranger) ]]; then
-    function ranger() {
-      if [ -z "$RANGER_LEVEL" ]; then
-        /usr/bin/ranger $@
-      else
-        exit
-      fi
-    }
-fi
+#if [[ $(command -v ranger) ]]; then
+#    function ranger() {
+#      if [ -z "$RANGER_LEVEL" ]; then
+#        /usr/bin/ranger $@
+#      else
+#        exit
+#      fi
+#    }
+#fi
