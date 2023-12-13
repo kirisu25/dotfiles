@@ -8,12 +8,12 @@ $battery
 [fill]
 symbol = ""
 
-[time]
-disabled = false
-style = "bold #d3d3d3"
-format = "[$time]($style)"
-time_format = "%m/%d %R "
-utc_time_offset = "+9"
+#[time]
+#disabled = false
+#style = "bold #d3d3d3"
+#format = "[$time]($style)"
+#time_format = "%m/%d %R "
+#utc_time_offset = "+9"
 
 [line_break]
 desabled = true
