@@ -206,9 +206,11 @@ repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'mattn/vim-goimports'
+on_ft = 'go'
 
 [[plugins]]
 repo = 'mattn/vim-maketable'
+on_ft = 'md'
 
 [[plugins]]
 repo = 'ghifarit53/tokyonight-vim'

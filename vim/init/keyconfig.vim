@@ -10,6 +10,7 @@ nmap j gj
 nmap k gk
 nmap <ESC><ESC> :nohlsearch<CR>
 nmap <Leader>gg :WWW
+nmap <Leader>t :bo term<CR>
 "----------
 "Insert
 "----------
