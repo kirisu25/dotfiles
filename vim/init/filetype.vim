@@ -24,7 +24,8 @@ function! s:filetype_md() abort
     nmap <Leader>p :PreviewMarkdown
 endfunction
 
-function! s:filetyme_rust() abort
+function! s:filetype_rust() abort
     nmap <Leader>run :bo term cargo run<CR>
     nmap <Leader>ch :bo term cargo check<CR>
+    nmap <Leader>ct :bo term cargo test<CR>
 endfunction
