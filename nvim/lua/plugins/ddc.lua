@@ -1,4 +1,3 @@
-local fn = vim.fn
 local h = require("util.helper")
 
 return {
@@ -11,13 +10,13 @@ return {
         {"Shougo/ddc-ui-native"}, 
         -- Source
         {"Shougo/ddc-source-around"},  
-        {"Shougo/ddc-source-nvim-lsp"}, 
+        {"Shougo/ddc-source-lsp"}, 
         {"LumaKernel/ddc-source-file"}, 
         -- Filter
         {"tani/ddc-fuzzy"},
     }, 
     config = function()
-        local patch_global = fn["ddc#custom#patch_global"]
+        local patch_global = vim.fn["ddc#custom#patch_global"]
 
         patch_global("ui", "native")
         patch_global("sources", {
@@ -35,7 +34,7 @@ return {
             around = {
                 mark = "[A]", 
             }, 
-            ["nvim-lsp"] = {
+            ["lsp"] = {
                 mark = "[LSP]", 
                 forceCompletionPattern = [[\.\w*|:\w*|->\w*]], 
             }, 
@@ -53,6 +52,6 @@ return {
                 minAutoCompleteLength = 2, 
             }, 
         })
-        fn["ddc#enable"]()
+        vim.fn["ddc#enable"]()
     end
 }

@@ -22,7 +22,6 @@ h.nmap("<ESC><ESC>", ":nohlsearch<CR>")
 
 -- Insert --
 h.imap("jj", "<ESC>")
-h.imap(",", ",<Space>")
 
 -- Terminal --
 h.tmap("<ESC>", "<C-\\><C-n>")
