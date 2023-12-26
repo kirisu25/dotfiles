@@ -2,7 +2,7 @@
   "ddc-fuzzy": { "branch": "main", "commit": "ee205bba8011a941380412a34e47ca67bb5fa41f" },
   "ddc-source-around": { "branch": "main", "commit": "645919c9f2ca3f3b95d6d21bf86317f42638073d" },
   "ddc-source-file": { "branch": "main", "commit": "72335138349133361e38fe7a0d320a3ff1788839" },
-  "ddc-source-lsp": { "branch": "main", "commit": "eb761ebc952980b4d824cd27e09a826e6c383829" },
+  "ddc-source-lsp": { "branch": "main", "commit": "46f4a0391c7b31cebe150413c13e1b3391733cff" },
   "ddc-ui-native": { "branch": "main", "commit": "dbe991735aaf357b60fc0bd9581636eca140831d" },
   "ddc.vim": { "branch": "main", "commit": "9572f51b8971973494607e5e8cd96fdff21376d8" },
   "ddu-filter-matcher_substring": { "branch": "main", "commit": "3704a0b12affd8d3114c81c90e6b4cd7f7ef5115" },
@@ -15,7 +15,8 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "56e435e09f8729af2d41973e81a0db440f8fe9c9" },
   "mason.nvim": { "branch": "main", "commit": "41e75af1f578e55ba050c863587cffde3556ffa6" },
   "nvim-lspconfig": { "branch": "master", "commit": "9099871a7c7e1c16122e00d70208a2cd02078d80" },
-  "skkeleton": { "branch": "main", "commit": "f8f5a89bdf224604fd402cd3fe26bc1f91504886" },
+  "nvim-treesitter": { "branch": "master", "commit": "812c2dd8fe838bb26cb53f0d251116468c2cae37" },
+  "skkeleton": { "branch": "main", "commit": "3a070c8a1daf7ea7a60d88c0cc91a7777576c69b" },
   "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
   "vimdoc-ja": { "branch": "master", "commit": "2f02f671a12e2a6e1a3813c2fc7a03dcce313825" }
 }
