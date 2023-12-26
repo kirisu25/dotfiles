@@ -1,4 +1,3 @@
-local fn = vim.fn
 local h = require("util.helper")
 
 return{
@@ -24,7 +23,7 @@ return{
         vim.api.nvim_create_autocmd("User", {
             pattern = "skkeleton-initialize-pre",
             callback = function()
-                fn["skkeleton#config"]({
+                vim.fn["skkeleton#config"]({
                     eggLikeNewline = true,
                     registerConvertResult = true,
                     globalDictionaries = dict,

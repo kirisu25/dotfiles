@@ -1,5 +1,5 @@
 return {
-    'cohama/lexima.vim', 
-    lazy = true, 
-    event = 'InsertEnter', 
+    'cohama/lexima.vim',
+    lazy = true,
+    event = 'InsertEnter',
 }

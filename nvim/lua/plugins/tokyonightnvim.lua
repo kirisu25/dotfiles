@@ -4,7 +4,7 @@ return {
     event = "VimEnter",
     priority = 1000,
     opts = {
-        style = "moon",
+        style = "night",
         transparent = true,
         styles = {
             sidebars = "transparent",

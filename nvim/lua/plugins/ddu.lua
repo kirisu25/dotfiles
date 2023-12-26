@@ -1,8 +1,8 @@
 return {
     "Shougo/ddu.vim",
     lazy = true,
-    keys = {
-	    {"H", mode = 'c',},
+    cmd = {
+        "Help"
     },
     dependencies = {
         {"vim-denops/denops.vim"},

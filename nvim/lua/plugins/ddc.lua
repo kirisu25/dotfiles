@@ -1,17 +1,16 @@
-local h = require("util.helper")
-
 return {
-    "Shougo/ddc.vim", 
-    lazy = true, 
-    event = "InsertEnter", 
+    "Shougo/ddc.vim",
+    lazy = true,
+    event = "InsertEnter",
     dependencies = {
-        {"vim-denops/denops.vim"}, 
+        {"vim-denops/denops.vim"},
         -- UI
-        {"Shougo/ddc-ui-native"}, 
+        {"Shougo/ddc-ui-native"},
         -- Source
-        {"Shougo/ddc-source-around"},  
-        {"Shougo/ddc-source-lsp"}, 
-        {"LumaKernel/ddc-source-file"}, 
+        {"Shougo/ddc-source-around"},
+        {"Shougo/ddc-source-lsp"},
+        {"LumaKernel/ddc-source-file"},
+        {"vim-skk/skkeleton"},
         -- Filter
         {"tani/ddc-fuzzy"},
     }, 
@@ -20,37 +19,37 @@ return {
 
         patch_global("ui", "native")
         patch_global("sources", {
-            "around", 
-            "nvim-lsp", 
-            "file", 
-            "skkeleton", 
+            "around",
+            "lsp",
+            "file",
+            "skkeleton",
         })
         patch_global("sourceOptions",  {
             _ = {
-                matchers = { "matcher_fuzzy" }, 
-                sorters = { "sorter_fuzzy" }, 
-                converters = { "converter_fuzzy" }, 
+                matchers = { "matcher_fuzzy" },
+                sorters = { "sorter_fuzzy" },
+                converters = { "converter_fuzzy" },
             }, 
             around = {
-                mark = "[A]", 
+                mark = "[A]",
             }, 
             ["lsp"] = {
-                mark = "[LSP]", 
-                forceCompletionPattern = [[\.\w*|:\w*|->\w*]], 
+                mark = "[LSP]",
+                forceCompletionPattern = [[\.\w*|:\w*|->\w*]],
             }, 
             file = {
-                mark = "[F]", 
-                isVolatile = true, 
+                mark = "[F]",
+                isVolatile = true,
                 forceCompletionPattern = [[\S/\S*]],
             }, 
             skkeleton = {
-                mark = "[SKK]", 
-                matchers = { "skkeleton" }, 
-                sorters = {}, 
-                converters = {}, 
-                isVolatile = true, 
-                minAutoCompleteLength = 2, 
-            }, 
+                mark = "[SKK]",
+                matchers = { "skkeleton" },
+                sorters = {},
+                converters = {},
+                isVolatile = true,
+                minAutoCompleteLength = 2,
+            },
         })
         vim.fn["ddc#enable"]()
     end
