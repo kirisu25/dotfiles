@@ -1,5 +1,5 @@
 return {
-    'vim-denops/denops.vim', 
-    lazy = true, 
-    event = "VimEnter", 
+	"vim-denops/denops.vim",
+	lazy = true,
+	event = "VimEnter",
 }
