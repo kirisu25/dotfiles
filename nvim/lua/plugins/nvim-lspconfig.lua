@@ -23,6 +23,11 @@ return {
 			function(server) --default handler (optional)
 				require("lspconfig")[server].setup({
 					on_attach = on_attach,
+                    settings = {
+                        ["rust-analyzer"] = {
+                            checkOnSave = {false},
+                        },
+                    },
 				})
 			end,
 		})
