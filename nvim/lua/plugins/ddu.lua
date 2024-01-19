@@ -24,73 +24,73 @@ return {
 		{ "Shougo/ddu-filter-matcher_substring" },
 	},
 	config = function()
-		-- fn["ddu#custom#patch_global"]({
-		-- 	ui = "ff",
-		-- 	uiParams = {
-		-- 		ff = {
-		-- 			startAutoAction = true,
-		-- 			autoAction = {
-		-- 				delay = 0,
-		-- 				name = "preview",
-		-- 			},
-		-- 			split = "vertical",
-		-- 			splitDirection = "topleft",
-		-- 			startFilter = true,
-		-- 			winWidth = "&columns / 2 -2",
-		-- 			previewFloating = true,
-		-- 			previewHeight = "&lines - 8",
-		-- 			previewWidth = "&columns /2 -2",
-		-- 			previewRow = 1,
-		-- 			previewCol = "&columns /2 + 1",
-		-- 		},
-		-- 	},
-		-- 	sourceOptions = {
-		-- 		_ = {
-		-- 			matchers = { "matcher_substring" },
-		-- 		},
-		-- 		help = {
-		-- 			defaultAction = "open",
-		-- 		},
-		-- 	},
-		-- })
-		local ui = function()
-			local top = 4
-			local width = vim.opt.columns:get()
-			local height = vim.opt.lines:get()
-			fn["ddu#custom#patch_global"]({
-				ui = "ff",
-				uiParams = {
-					_ = {
-						winWidth = math.floor(width * 0.8),
-						winHeight = math.floor(height * 0.8),
-						winCol = math.floor((width - (math.floor(width * 0.8) / 2))),
-						winRow = top,
-						split = "floating",
-						floatingBorder = "single",
-						preview = true,
-						previewFloating = true,
-						previewFloatingBorder = "single",
-						previewSplit = "vertical",
-						previewWidth = math.floor(math.floor(width * 0.8) * 0.5),
-						previewHeight = math.floor(height * 0.8) - 2,
-						previewCol = math.floor(width / 2) - 2,
-						previewRow = top + 1,
+		fn["ddu#custom#patch_global"]({
+			ui = "ff",
+			uiParams = {
+				ff = {
+					startAutoAction = true,
+					autoAction = {
+						delay = 0,
+						name = "preview",
 					},
-					ff = {
-						filterSplitDirection = "floating",
-						filterFloatingPosition = "top",
-						autoResize = false,
-						ignoreEmpty = false,
-					},
-					filter = {},
+					split = "vertical",
+					splitDirection = "topleft",
+					startFilter = true,
+					winWidth = "&columns / 2 -2",
+					previewFloating = true,
+					previewHeight = "&lines - 8",
+					previewWidth = "&columns /2 -2",
+					previewRow = 1,
+					previewCol = "&columns /2 + 1",
 				},
-			})
-		end
-		ui()
-		api.nvim_create_autocmd("VimResized", {
-			pattern = "*",
-			callback = ui,
+			},
+			sourceOptions = {
+				_ = {
+					matchers = { "matcher_substring" },
+				},
+				help = {
+					defaultAction = "open",
+				},
+			},
 		})
+		-- local ui = function()
+		-- 	local top = 4
+		-- 	local width = vim.opt.columns:get()
+		-- 	local height = vim.opt.lines:get()
+		-- 	fn["ddu#custom#patch_global"]({
+		-- 		ui = "ff",
+		-- 		uiParams = {
+		-- 			_ = {
+		-- 				winWidth = math.floor(width * 0.8),
+		-- 				winHeight = math.floor(height * 0.8),
+		-- 				winCol = math.floor((width - (math.floor(width * 0.8) / 2))),
+		-- 				winRow = top,
+		-- 				split = "floating",
+		-- 				floatingBorder = "single",
+		-- 				preview = true,
+		-- 				previewFloating = true,
+		-- 				previewFloatingBorder = "single",
+		-- 				previewSplit = "vertical",
+		-- 				previewWidth = math.floor(math.floor(width * 0.8) * 0.5),
+		-- 				previewHeight = math.floor(height * 0.8) - 2,
+		-- 				previewCol = math.floor(width / 2) - 2,
+		-- 				previewRow = top + 1,
+		-- 			},
+		-- 			ff = {
+		-- 				filterSplitDirection = "floating",
+		-- 				filterFloatingPosition = "top",
+		-- 				autoResize = false,
+		-- 				ignoreEmpty = false,
+		-- 			},
+		-- 			filter = {},
+		-- 		},
+		-- 	})
+		-- end
+		-- ui()
+		-- api.nvim_create_autocmd("VimResized", {
+		-- 	pattern = "*",
+		-- 	callback = ui,
+		-- })
 
 		fn["ddu#custom#patch_local"]("help-ff", {
 			sources = {
