@@ -26,7 +26,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 #---------------------------------------------------
-###completion
+### completion
 #---------------------------------------------------
 autoload -Uz compinit && compinit
 
@@ -34,14 +34,14 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 zstyle ':completion:*:default' menu select=1
 #---------------------------------------------------
-###high-light
+### high-light
 #---------------------------------------------------
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 zstyle ':completion:*' list-colors $LSCOLORS
 
 #---------------------------------------------------
-###basic
+### basic
 #---------------------------------------------------
 export LANG=ja_JP.UTF-8
 export EDITOR='vim'
@@ -55,28 +55,26 @@ export SAVEHIST=10000
 setopt share_history
 setopt hist_reduce_blanks
 setopt hist_ignore_all_dups
-##alias
-#ls
+## alias
+# ls
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-#grep
+# grep
 alias grep='grep --color=auto'
-#cd
+# cd
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ~='cd ~'
-#safety
+# safety
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-#w3m
+# w3m
 alias w3='w3m https://www.google.co.jp'
-#zellij
-alias zj='zellij'
-#local config
+# local config
 [ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
 if [ -d $ZDOTDIR ] && [ -r $ZDOTDIR ] && [ -x $ZDOTDIR ]; then
     for file in ${ZDOTDIR}/**/*.zsh; do
@@ -84,7 +82,7 @@ if [ -d $ZDOTDIR ] && [ -r $ZDOTDIR ] && [ -x $ZDOTDIR ]; then
     done
 fi
 #---------------------------------------------------
-###enable starship
+### enable starship
 #---------------------------------------------------
 #starship is set to the default prompt.
 #If the zsh default prompt is not loaded, starship 
@@ -94,7 +92,7 @@ fi
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 #---------------------------------------------------
-###ranger
+### ranger
 #---------------------------------------------------
 #if [[ $(command -v ranger) ]]; then
 #    function ranger() {
@@ -105,3 +103,11 @@ eval "$(starship init zsh)"
 #      fi
 #    }
 #fi
+#---------------------------------------------------
+### tmux
+#---------------------------------------------------
+if [[ $(command -v tmux) ]]; then
+    if [ $SHLVL = 1 ]; then
+        tmux
+    fi
+fi
