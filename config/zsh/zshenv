@@ -12,7 +12,7 @@ export PATH=${HOME}/.local/bin:$PATH
 export PATH=${HOME}/.cargo/bin:$PATH
 
 # editor
-export EDITOR=vim
+export EDITOR=nvim
 export CVSEDITOR="${EDITOR}"
 export SVN_EDITOR="${EDITOR}"
 export GIT_EDITOR="${EDITOR}"
