@@ -18,6 +18,7 @@ return {
 
     -- font
     font_size = 12.0,
+		font = wezterm.font("HackGen", {weight="Regular", stretch="Normal", style="Normal"})
 
     -- Key config
     leader = { key = "Space", mods = "SHIFT", time_millisecons = 1000 },
