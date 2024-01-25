@@ -1,0 +1,3 @@
+! xterm setting
+xterm*faceName: Fira Code:size=14:antialias=true
+xterm*reverseVideo: true
