@@ -1,7 +1,12 @@
 return {
     "folke/nvim-treesitter",
     lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
+		ft = {
+			"go",
+			"rust",
+			"lua",
+		},
+--    event = { "BufReadPre", "BufNewFile" },
     config = function ()
         require'nvim-treesitter.configs'.setup {
             ensure_installed = {"lua", "vim", "vimdoc", "rust", "go"},
