@@ -43,18 +43,12 @@ zstyle ':completion:*' list-colors $LSCOLORS
 #---------------------------------------------------
 ### basic
 #---------------------------------------------------
-export LANG=ja_JP.UTF-8
-export EDITOR='vim'
+# export LANG=ja_JP.UTF-8
+# export EDITOR='vim'
 
 setopt print_eight_bit
 setopt correct
 
-HISTFILE=~/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
-setopt share_history
-setopt hist_reduce_blanks
-setopt hist_ignore_all_dups
 ## alias
 # ls
 alias ls='ls --color=auto'
@@ -72,8 +66,6 @@ alias ~='cd ~'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-# w3m
-alias w3='w3m https://www.google.co.jp'
 # local config
 [ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
 if [ -d $ZDOTDIR ] && [ -r $ZDOTDIR ] && [ -x $ZDOTDIR ]; then
@@ -81,16 +73,6 @@ if [ -d $ZDOTDIR ] && [ -r $ZDOTDIR ] && [ -x $ZDOTDIR ]; then
         [ -r $file ] && source $file
     done
 fi
-#---------------------------------------------------
-### enable starship
-#---------------------------------------------------
-#starship is set to the default prompt.
-#If the zsh default prompt is not loaded, starship 
-#will not start properly. If it doesn't start well,
-#`prompt default` should be mentioned.
-#prompt default
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
 #---------------------------------------------------
 ### ranger
 #---------------------------------------------------
@@ -111,5 +93,3 @@ if [[ $(command -v tmux) ]]; then
         tmux
     fi
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
