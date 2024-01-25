@@ -111,3 +111,5 @@ if [[ $(command -v tmux) ]]; then
         tmux
     fi
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
