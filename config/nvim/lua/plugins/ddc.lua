@@ -15,8 +15,6 @@ return {
 			{ "Shougo/ddc-source-lsp" },
 			{ "Shougo/ddc-source-cmdline" },
 			{ "LumaKernel/ddc-source-file" },
-			-- { "vim-skk/skkeleton" },
-			{ "LumaKernel/ddc-source-file" },
 			-- Filter
 			{ "tani/ddc-fuzzy" },
 			-- Preview
@@ -142,6 +140,7 @@ return {
 					signcolumn = "no",
 					cursorline = false,
 					foldenable = false,
+					foldcolumn = "0",
 				},
 			})
 		end,
