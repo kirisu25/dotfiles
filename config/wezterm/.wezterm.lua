@@ -17,7 +17,7 @@ return {
     color_scheme = "nord",
 
     -- font
-    font_size = 12.0,
+    font_size = 16.0,
 		font = wezterm.font("HackGen", {weight="Regular", stretch="Normal", style="Normal"})
 
     -- Key config
