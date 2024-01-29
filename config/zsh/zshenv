@@ -46,3 +46,6 @@ unsetopt list_types
 
 ## rust
 . "$HOME/.cargo/env"
+
+#python
+alias python="python3"

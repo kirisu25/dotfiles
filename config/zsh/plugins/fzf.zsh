@@ -1,7 +1,5 @@
 zinit lucid as=program pick="$ZPFX/bin/fzf-tmux" \
-    atclone="cp shell/completion.zsh _fzf_completion; \
-        cp shell/key-bindings.zsh key-bindings.zsh; \
-        cp bin/fzf-tmux $ZPFX/bin" \
+    atclone="cp bin/fzf-tmux $ZPFX/bin" \
     make="PREFIX=$ZPFX install" for \
         junegunn/fzf
 
