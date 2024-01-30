@@ -45,4 +45,11 @@ setopt no_beep
 unsetopt list_types
 
 ## rust
+<<<<<<< HEAD
 source "${HOME}/.cargo/env"
+=======
+. "$HOME/.cargo/env"
+
+#python
+alias python="python3"
+>>>>>>> refs/remotes/origin/master
