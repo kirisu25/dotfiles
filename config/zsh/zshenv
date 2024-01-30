@@ -45,4 +45,4 @@ setopt no_beep
 unsetopt list_types
 
 ## rust
-. "$HOME/.cargo/env"
+source "${HOME}/.cargo/env"
