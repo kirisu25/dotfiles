@@ -1,7 +1,3 @@
-zmodload zsh/zprof && zprof
-if (which zprof > /dev/null 2>&1) ; then
-	zprof
-fi
 #---------------------------------------------------
 ### Added by Zinit's installer
 #---------------------------------------------------
