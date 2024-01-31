@@ -43,13 +43,11 @@ unsetopt bg_nice
 setopt list_packed
 setopt no_beep
 unsetopt list_types
+setopt print_eight_bit
+setopt correct
 
 ## rust
-<<<<<<< HEAD
 source "${HOME}/.cargo/env"
-=======
-. "$HOME/.cargo/env"
 
 #python
 alias python="python3"
->>>>>>> refs/remotes/origin/master

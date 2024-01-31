@@ -1,4 +1,28 @@
 #---------------------------------------------------
+### basic
+#---------------------------------------------------
+# alias
+## ls
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+## grep
+alias grep='grep --color=auto'
+## cd
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ~='cd ~'
+## safety
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+#---------------------------------------------------
+### local config
+#---------------------------------------------------
+[ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
+#---------------------------------------------------
 ### Added by Zinit's installer
 #---------------------------------------------------
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -24,6 +48,11 @@ zinit light-mode for \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-completions
 
+if [ -d $ZDOTDIR ] && [ -r $ZDOTDIR ] && [ -x $ZDOTDIR ]; then
+    for file in ${ZDOTDIR}/**/*.zsh; do
+        [ -r $file ] && source $file
+    done
+fi
 ### End of Zinit's installer chunk
 #---------------------------------------------------
 ### completion
@@ -39,52 +68,18 @@ zstyle ':completion:*:default' menu select=1
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 zstyle ':completion:*' list-colors $LSCOLORS
-
-#---------------------------------------------------
-### basic
-#---------------------------------------------------
-# export LANG=ja_JP.UTF-8
-# export EDITOR='vim'
-
-setopt print_eight_bit
-setopt correct
-
-## alias
-# ls
-alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-# grep
-alias grep='grep --color=auto'
-# cd
-alias ..='cd ..'
-alias ..2='cd ../..'
-alias ..3='cd ../../..'
-alias ~='cd ~'
-# safety
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-# local config
-[ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
-if [ -d $ZDOTDIR ] && [ -r $ZDOTDIR ] && [ -x $ZDOTDIR ]; then
-    for file in ${ZDOTDIR}/**/*.zsh; do
-        [ -r $file ] && source $file
-    done
-fi
 #---------------------------------------------------
 ### ranger
 #---------------------------------------------------
-#if [[ $(command -v ranger) ]]; then
-#    function ranger() {
-#      if [ -z "$RANGER_LEVEL" ]; then
-#        /usr/bin/ranger $@
-#      else
-#        exit
-#      fi
-#    }
-#fi
+if [[ $(command -v ranger) ]]; then
+    function ranger() {
+      if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger $@
+      else
+        exit
+      fi
+    }
+fi
 #---------------------------------------------------
 ### tmux
 #---------------------------------------------------
