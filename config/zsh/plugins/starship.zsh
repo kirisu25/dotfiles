@@ -1,4 +1,5 @@
-zinit ice as"program" from"gh-r"
+zinit ice as"program" from"gh-r" atclone"./starship completions zsh > _starship" \
+	atpull"%atclone"
 zinit light starship/starship
 
 #---------------------------------------------------
