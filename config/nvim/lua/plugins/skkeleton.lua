@@ -1,7 +1,7 @@
 local h = require("util.helper")
 
 return {
-	"skk-vim/skkeleton",
+	"vim-skk/skkeleton",
 	lazy = true,
 	event = "VimEnter",
 	config = function()
