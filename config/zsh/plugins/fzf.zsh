@@ -36,5 +36,5 @@ export FZF_TMUX_OPTS="-p 80%"
 ## move directory
 fd() {
     local dir
-    dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux -p 80% --preview 'tree -C {}') && cd "$dir"
+    dir=$(find ${1:-.} -type d 2> /dev/null | fzf --preview 'tree -C {}') && cd "$dir"
 }
