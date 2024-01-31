@@ -50,4 +50,4 @@ setopt correct
 #source "${HOME}/.cargo/env"
 
 #python
-alias python="python3"
+#alias python="python3"
