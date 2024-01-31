@@ -47,7 +47,7 @@ setopt print_eight_bit
 setopt correct
 
 ## rust
-source "${HOME}/.cargo/env"
+#source "${HOME}/.cargo/env"
 
 #python
 alias python="python3"
