@@ -1,73 +1,33 @@
 local wezterm = require("wezterm")
+local config = {}
 
-local scrollback_lines = 20000
+if wezterm.config_builder then
+	config = wezterm.config_builder()
+end
+
 local act = wezterm.action
 
+-- Terminal
+config.initial_cols = 160
+config.initial_rows = 35
+config.prefer_egl = true
+config.window_background_opacity = 0.8
+config.text_background_opacity = 1
+config.adjust_window_size_when_changing_font_size = true
+config.enable_tab_bar = true
+config.color_scheme = "nord"
 
-return {
+-- font
+config.font_size = 14.0
+config.font = wezterm.font("HackGen", { weight = "Regular", stretch = "Normal", style = "Normal" })
 
-    -- Terminal
-    initial_cols = 160,
-    initial_rows = 35,
-    prefer_egl = true,
-    window_background_opacity = 0.898,
-    text_background_opacity = 0,
-    adjust_window_size_when_changing_font_size = true,
-    enable_tab_bar = true,
-    color_scheme = "nord",
+-- Leader key
+config.leader = { key = ",", mods = "CTRL", time_millisecons = 1000 }
 
-    -- font
-    font_size = 14.0,
-		font = wezterm.font("HackGen", {weight="Regular", stretch="Normal", style="Normal"}),
+-- keybinds
+config.disable_default_key_bindings = true
+local keybind = require("keybinds")
+config.keys = keybind.keys
+config.key_tables = keybind.key_tables
 
-    -- Key config
-    leader = { key = "Space", mods = "SHIFT", time_millisecons = 1000 },
-    keys = {
-        -- Resize Pane
-        {
-            key = 'r',
-            mods = 'LEADER',
-            action = act.ActivateKeyTable {
-                name = 'resize_pane',
-                one_shot = false,
-            },
-        },
-        -- Move Pane
-        {
-            key = 'p',
-            mods = 'LEADER',
-            action = act.ActivateKeyTable {
-                name = 'activate_pane',
-                timeout_milliseconds = 1000,
-            },
-        },
-        -- Split Horizontal
-        {
-            key = '|',
-            mods = 'LEADER|SHIFT',
-            action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
-        },
-        -- Split Vertical
-        {
-            key = '-',
-            mods = 'LEADER|SHIFT',
-            action = act.SplitVertical { domain = 'CurrentPaneDomain' },
-        },
-    },
-
-    key_tables = {
-        resize_pane = {
-            { key = 'h', action = act.AdjustPaneSize {'Left', 1} },
-            { key = 'j', action = act.AdjustPaneSize {'Down', 1} },
-            { key = 'k', action = act.AdjustPaneSize {'Up', 1} },
-            { key = 'l', action = act.AdjustPaneSize {'Right', 1} },
-            { key = 'Escape', action = "PopKeyTable" },
-        },
-        activate_pane = {
-            { key = 'h', action = act.ActivatePaneDirection 'Left' },
-            { key = 'j', action = act.ActivatePaneDirection 'Down' },
-            { key = 'k', action = act.ActivatePaneDirection 'Up' },
-            { key = 'l', action = act.ActivatePaneDirection 'Right' },
-        },
-    },
-}
+return config
