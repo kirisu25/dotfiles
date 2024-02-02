@@ -14,6 +14,7 @@ return {
 					disabled_filetypes = {},
 					always_divide_middle = true,
 					colored = false,
+          globalstatus = true,
 				},
 			}),
 		}
