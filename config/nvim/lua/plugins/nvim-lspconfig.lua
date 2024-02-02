@@ -23,11 +23,11 @@ return {
 			function(server) --default handler (optional)
 				require("lspconfig")[server].setup({
 					on_attach = on_attach,
-                    settings = {
-                        ["rust-analyzer"] = {
-                            checkOnSave = {false},
-                        },
-                    },
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = { false },
+						},
+					},
 				})
 			end,
 		})
@@ -37,15 +37,15 @@ return {
 			ensure_installed = { "stylua", "prettierd", "goimports" },
 			handlers = {
 				function() end, -- disables automatic setup of all null-ls sources
----@diagnostic disable-next-line: unused-local
+				---@diagnostic disable-next-line: unused-local
 				stylua = function(source_name, methods)
 					null_ls.register(null_ls.builtins.formatting.stylua)
 				end,
----@diagnostic disable-next-line: unused-local
+				---@diagnostic disable-next-line: unused-local
 				prettierd = function(source_name, methods)
 					null_ls.register(null_ls.builtins.formatting.prettierd)
 				end,
----@diagnostic disable-next-line: unused-local
+				---@diagnostic disable-next-line: unused-local
 				goimports = function(source_name, methods)
 					null_ls.register(null_ls.builtins.formatting.goimports)
 				end,
