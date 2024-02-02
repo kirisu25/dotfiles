@@ -15,8 +15,8 @@ end
 
 M.go = function()
 	set_indent(2, true)
-	h.nmap("<Leader>gt", "<cmd>bo term go test %<CR>")
-	h.nmap("<Leader>run", "<cmd>bo term go run %<CR>")
+	h.nmap("<Leader>gt", "<cmd>bo term go test <CR>")
+	h.nmap("<Leader>run", "<cmd>bo term go run <CR>")
 	h.nmap("<Leader>doc", "<cmd>bo term go doc")
 end
 
@@ -30,7 +30,7 @@ end
 local ft = setmetatable(M, {
 	__index = function()
 		return function()
-			set_indent(2, true)
+			set_indent(2, false)
 		end
 	end,
 })
