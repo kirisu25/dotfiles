@@ -9,7 +9,7 @@ return {
 --    event = { "BufReadPre", "BufNewFile" },
     config = function ()
         require'nvim-treesitter.configs'.setup {
-            ensure_installed = {"lua", "vim", "vimdoc", "rust", "go"},
+            ensure_installed = {"lua", "vim", "vimdoc", "rust", "go", "haskell"},
             sync_install = false,
             auto_install = true,
             highlight = {

@@ -11,14 +11,15 @@ return {
 	lazy = true,
 	cmd = {
 		"Help",
+		"File",
 	},
 	dependencies = {
 		{ "vim-denops/denops.vim" },
 		-- UI
 		{ "Shougo/ddu-ui-ff" },
-		{ "Shougo/ddu-ui-filer" },
 		-- Source
 		{ "Shougo/ddu-source-file" },
+		{ "Shougo/ddu-kind-file" },
 		{ "matsui54/ddu-source-help" },
 		-- Filter
 		{ "Shougo/ddu-filter-matcher_substring" },
@@ -35,7 +36,7 @@ return {
 					},
 					split = "vertical",
 					splitDirection = "topleft",
-					startFilter = true,
+--					startFilter = true,
 					winWidth = "&columns / 2 -2",
 					previewFloating = true,
 					previewHeight = "&lines - 8",
@@ -48,49 +49,20 @@ return {
 				_ = {
 					matchers = { "matcher_substring" },
 				},
+				file = {
+					defaultAction = "open",
+				},
 				help = {
 					defaultAction = "open",
 				},
 			},
 		})
-		-- local ui = function()
-		-- 	local top = 4
-		-- 	local width = vim.opt.columns:get()
-		-- 	local height = vim.opt.lines:get()
-		-- 	fn["ddu#custom#patch_global"]({
-		-- 		ui = "ff",
-		-- 		uiParams = {
-		-- 			_ = {
-		-- 				winWidth = math.floor(width * 0.8),
-		-- 				winHeight = math.floor(height * 0.8),
-		-- 				winCol = math.floor((width - (math.floor(width * 0.8) / 2))),
-		-- 				winRow = top,
-		-- 				split = "floating",
-		-- 				floatingBorder = "single",
-		-- 				preview = true,
-		-- 				previewFloating = true,
-		-- 				previewFloatingBorder = "single",
-		-- 				previewSplit = "vertical",
-		-- 				previewWidth = math.floor(math.floor(width * 0.8) * 0.5),
-		-- 				previewHeight = math.floor(height * 0.8) - 2,
-		-- 				previewCol = math.floor(width / 2) - 2,
-		-- 				previewRow = top + 1,
-		-- 			},
-		-- 			ff = {
-		-- 				filterSplitDirection = "floating",
-		-- 				filterFloatingPosition = "top",
-		-- 				autoResize = false,
-		-- 				ignoreEmpty = false,
-		-- 			},
-		-- 			filter = {},
-		-- 		},
-		-- 	})
-		-- end
-		-- ui()
-		-- api.nvim_create_autocmd("VimResized", {
-		-- 	pattern = "*",
-		-- 	callback = ui,
-		-- })
+
+		fn["ddu#custom#patch_local"]("file", {
+			sources = {
+				{ name = "file" },
+			},
+		})
 
 		fn["ddu#custom#patch_local"]("help-ff", {
 			sources = {
@@ -103,6 +75,18 @@ return {
 		local function ddu_ff_keymaps()
 			h.nmap("<CR>", function()
 				ddu_do_action("itemAction")
+			end, { buffer = true })
+			h.nmap("v", function()
+				ddu_do_action("itemAction", {
+					name = "open",
+          params = { command = "vsplit" },
+        })
+			end, { buffer = true })
+			h.nmap("t", function()
+				ddu_do_action("itemAction", {
+					name = "open",
+          params = { command = "tabedit" },
+        })
 			end, { buffer = true })
 			h.nmap("i", function()
 				ddu_do_action("openFilterWindow")
@@ -135,6 +119,10 @@ return {
 
 		api.nvim_create_user_command("Help", function()
 			fn["ddu#start"]({ name = "help-ff" })
+		end, {})
+
+		api.nvim_create_user_command("File", function()
+			fn["ddu#start"]({ name = "file" })
 		end, {})
 	end,
 }
