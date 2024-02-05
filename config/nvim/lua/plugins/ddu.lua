@@ -36,10 +36,10 @@ return {
 					},
 					split = "vertical",
 					splitDirection = "topleft",
---					startFilter = true,
+					--					startFilter = true,
 					winWidth = "&columns / 2 -2",
 					previewFloating = true,
-					previewHeight = "&lines - 8",
+					previewHeight = "&lines - 2",
 					previewWidth = "&columns /2 -2",
 					previewRow = 1,
 					previewCol = "&columns /2 + 1",
@@ -49,12 +49,6 @@ return {
 				_ = {
 					matchers = { "matcher_substring" },
 				},
-				file = {
-					defaultAction = "open",
-				},
-				help = {
-					defaultAction = "open",
-				},
 			},
 		})
 
@@ -62,11 +56,32 @@ return {
 			sources = {
 				{ name = "file" },
 			},
+			sourceOptions = {
+				file = {
+					defaultAction = "open",
+					-- path = fn["expand"]("~/"),
+				},
+			},
 		})
 
 		fn["ddu#custom#patch_local"]("help-ff", {
 			sources = {
 				{ name = "help" },
+			},
+			sourceOptions = {
+				help = {
+					defaultAction = "open",
+				},
+			},
+			uiParams = {
+				_ = {
+					startFilter = true,
+					startAutoAction = true,
+					autoAction = {
+						delay = 0,
+						name = "preview",
+					},
+				},
 			},
 		})
 
@@ -79,14 +94,14 @@ return {
 			h.nmap("v", function()
 				ddu_do_action("itemAction", {
 					name = "open",
-          params = { command = "vsplit" },
-        })
+					params = { command = "vsplit" },
+				})
 			end, { buffer = true })
 			h.nmap("t", function()
 				ddu_do_action("itemAction", {
 					name = "open",
-          params = { command = "tabedit" },
-        })
+					params = { command = "tabedit" },
+				})
 			end, { buffer = true })
 			h.nmap("i", function()
 				ddu_do_action("openFilterWindow")
