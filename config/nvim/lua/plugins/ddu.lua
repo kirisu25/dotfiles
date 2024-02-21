@@ -137,6 +137,9 @@ return {
 			h.nmap("q", function()
 				ff_do_action("quit")
 			end, { buffer = true })
+			h.nmap("<ESC>", function()
+				ff_do_action("quit")
+			end, { buffer = true })
 		end
 
 		local function ddu_ff_filetr_keymaps()
