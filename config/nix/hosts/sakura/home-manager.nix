@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ../../home-manager/cli/vim
     ../../home-manager/cli/nix.nix
     ../../home-manager/cli/direnv.nix
     ../../home-manager/cli/git.nix
