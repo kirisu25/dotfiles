@@ -15,13 +15,19 @@ inputs: let
 
       extraSpecialArgs = {
         inherit inputs username;
+        pkgs-stable = import inputs.nixpkgs-stable {
+          inherit system overlays;
+          config = {
+            allowUnfree = true;
+          };
+        };
       };
 
       modules = modules ++ [
         {
           home = {
             inherit username;
-            homeDirectory = "/home/$(username)";
+            homeDirectory = "/home/${username}";
             stateVersion = "23.11";
           };
           programs.home-manager.enable = true;

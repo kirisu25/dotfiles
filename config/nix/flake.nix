@@ -17,6 +17,9 @@
 
     # Rust toolchain
     rust-overlay.url = "github:oxalica/rust-overlay";
+
+    # Remote deployment
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = inputs: let
@@ -39,15 +42,19 @@
           sudo nixos-rebuild switch --flake ".#$@"
         '')
       ];
-      devPkgs = [
-        inputs.deploy-rs.packages.${pkgs.system}.default
-      ];
+#      devPkgs = [
+#        inputs.deploy-rs.packages.${pkgs.system}.default
+#      ];
+#      in {
+#        default = pkgs.mkShell {
+#          packages = scripts ++ devPkgs;
+#        };
+#      }
       in {
         default = pkgs.mkShell {
-          packages = scripts ++ devPkgs;
+          packages = scripts;
         };
       }
     );
   };
-
 }
