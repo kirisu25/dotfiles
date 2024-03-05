@@ -5,7 +5,7 @@ return {
   lazy = true,
   ft = {"py"},
   config = function()
-    h.nmap("ip", "<cmd>Ipython<CR>")
-    h.vmap("ip", "<cmd>VIpython<CR>")
+    h.nmap("<Leader>ip", "<cmd>Ipython<CR>")
+    h.vmap("<Leader>ip", "<cmd>VIpython<CR>")
   end
 }
