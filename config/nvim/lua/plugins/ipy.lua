@@ -8,7 +8,7 @@ return {
     {'szkny/SplitTerm'},
   },
   config = function()
-    h.nmap("<Leader>ip", "<cmd>Ipython<CR>")
-    h.vmap("<Leader>ip", "<cmd>VIpython<CR>")
+    h.nmap("<Leader>g", "<cmd>Ipython<CR>")
+    h.vmap("<Leader>g", "<cmd>VIpython<CR>")
   end
 }
