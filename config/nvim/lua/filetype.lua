@@ -26,6 +26,10 @@ M.rust = function()
 	h.nmap("<Leader>ct", "<cmd>bo term cargo test<CR>")
 end
 
+M.python = function()
+  set_indent(4, false)
+end
+
 local ft = setmetatable(M, {
 	__index = function()
 		return function()
