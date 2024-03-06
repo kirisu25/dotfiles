@@ -17,5 +17,8 @@
 
     ## Rust
     rust-bin.stable.latest.default
+
+    ## go
+    go
   ];
 }
