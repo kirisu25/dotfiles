@@ -34,7 +34,7 @@ return {
 		local null_ls = require("null-ls")
 		null_ls.setup()
 		require("mason-null-ls").setup({
-			ensure_installed = { "stylua", "prettierd", "goimports" },
+			ensure_installed = { "stylua", "prettierd", "goimports", "black" },
 			handlers = {
 				function() end, -- disables automatic setup of all null-ls sources
 				---@diagnostic disable-next-line: unused-local
@@ -48,6 +48,10 @@ return {
 				---@diagnostic disable-next-line: unused-local
 				goimports = function(source_name, methods)
 					null_ls.register(null_ls.builtins.formatting.goimports)
+				end,
+				---@diagnostic disable-next-line: unused-local
+				black = function(source_name, methods)
+					null_ls.register(null_ls.builtins.formatting.black)
 				end,
 			},
 		})
