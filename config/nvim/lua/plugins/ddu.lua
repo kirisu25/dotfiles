@@ -18,6 +18,7 @@ return {
 		-- UI
 		{ "Shougo/ddu-ui-ff" },
 		{ "Shougo/ddu-ui-filer" },
+    { "ryota2357/ddu-column-icon_filename" },
 		-- Source
 		{ "Shougo/ddu-source-file" },
 		{ "Shougo/ddu-kind-file" },
@@ -59,17 +60,24 @@ return {
 			sources = {
 				{
 					name = "file",
-					params = {},
+					params = {
+						ignoreDirectories = { ".git", "node_modules", ".venv" },
+					},
 				},
 			},
 			sourceOptions = {
 				_ = {
-					columns = { "filename" },
+					columns = { "icon_filename" },
 				},
 			},
 			kindOptions = {
 				file = {
 					defaultAction = "open",
+				},
+			},
+			actionOptions = {
+				narrow = {
+					quit = false,
 				},
 			},
 			uiParams = {
@@ -79,13 +87,19 @@ return {
 						delay = 0,
 						name = "preview",
 					},
+          displayRoot = false,
 					split = "floating",
-					winWidth = "&columns / 2 -2",
+					floatingBorder = "rounded",
+					winWidth = "&columns / 2 -3",
+					winHeight = "&lines -3",
+					winRow = 0,
+					winCol = 1,
 					previewFloating = true,
-					previewHeight = "&lines - 2",
-					previewWidth = "&columns /2 -2",
-					previewRow = 1,
-					previewCol = "&columns /2 + 1",
+          previewFloatingBorder = "rounded",
+					previewWidth = "&columns / 2 -3",
+					previewHeight = "&lines - 3",
+					previewRow = 3,
+					previewCol = "&columns / 2",
 				},
 			},
 		})
@@ -111,9 +125,9 @@ return {
 			},
 		})
 
-    -- ------------------------------------------------
-    -- ui_ff
-    -- ------------------------------------------------
+		-- ------------------------------------------------
+		-- ui_ff
+		-- ------------------------------------------------
 		local ff_do_action = fn["ddu#ui#do_action"]
 		local function ddu_ff_keymaps()
 			h.nmap("<CR>", function()
@@ -167,56 +181,99 @@ return {
 			fn["ddu#start"]({ name = "help-ff" })
 		end, {})
 
-    -- ------------------------------------------------
-    -- ui_filer
-    -- ------------------------------------------------
-		local filer_do_action = fn["ddu#ui#filer#do_action"]
+		-- ------------------------------------------------
+		-- ui_filer
+		-- ------------------------------------------------
+		local filer_do_action = fn["ddu#ui#do_action"]
+		local get_item = fn["ddu#ui#get_item"]
 		local function ddu_filer_keymaps()
 			h.nmap("<CR>", function()
-				filer_do_action("itemAction")
+				if get_item()["isTree"] then
+					filer_do_action("expandItem", { mode = "toggle" })
+				else
+					filer_do_action("itemAction")
+				end
 			end, { buffer = true })
+
+			h.nmap("l", function()
+				filer_do_action("expandItem", {
+					mode = "toggle",
+				})
+        filer_do_action("preview")
+			end, { buffer = true })
+
+			h.nmap("h", function()
+				filer_do_action("itemAction", {
+					name = "narrow",
+					params = { path = ".." },
+				})
+        filer_do_action("preview")
+			end, { buffer = true })
+
+      vim.cmd("nmap j j<cmd>call ddu#ui#do_action('preview')<CR>")
+      vim.cmd("nmap k k<cmd>call ddu#ui#do_action('preview')<CR>")
+
+			h.nmap(";", function()
+				filer_do_action("togglePreview")
+			end, { buffer = true })
+
 			h.nmap("v", function()
 				filer_do_action("itemAction", {
 					name = "open",
 					params = { command = "vsplit" },
 				})
 			end, { buffer = true })
+
 			h.nmap("t", function()
 				filer_do_action("itemAction", {
 					name = "open",
 					params = { command = "tabedit" },
 				})
 			end, { buffer = true })
+
+			h.nmap("<ESC>", function()
+				filer_do_action("quit")
+			end, { buffer = true })
+
 			h.nmap("q", function()
 				filer_do_action("quit")
 			end, { buffer = true })
+
 			h.nmap("..", function()
 				filer_do_action("itemAction", {
 					name = "narrow",
 					params = { path = ".." },
 				})
 			end, { buffer = true })
+
 			h.nmap("p", function()
 				filer_do_action("itemAction", { name = "paste" })
 			end, { buffer = true })
+
 			h.nmap("c", function()
 				filer_do_action("itemAction", { name = "copy" })
 			end, { buffer = true })
+
 			h.nmap("d", function()
 				filer_do_action("itemAction", { name = "delete" })
 			end, { buffer = true })
+
 			h.nmap("r", function()
 				filer_do_action("itemAction", { name = "rename" })
 			end, { buffer = true })
+
 			h.nmap("y", function()
 				filer_do_action("itemAction", { name = "yank" })
 			end, { buffer = true })
+
 			h.nmap("mv", function()
 				filer_do_action("itemAction", { name = "move" })
 			end, { buffer = true })
+
 			h.nmap("n", function()
 				filer_do_action("itemAction", { name = "newFile" })
 			end, { buffer = true })
+
 			h.nmap("mk", function()
 				filer_do_action("itemAction", { name = "newDirectory" })
 			end, { buffer = true })
