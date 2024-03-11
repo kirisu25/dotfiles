@@ -44,7 +44,7 @@ export class Config extends BaseConfig {
       {
         path: "$XDG_CONFIG_HOME/vim/dpp.toml",
         options: {
-          lazy: true,
+          lazy: false,
         },
       },
     ) as Toml | undefined;

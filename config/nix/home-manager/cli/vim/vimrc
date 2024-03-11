@@ -1,0 +1,73 @@
+" Input
+set fileencodings=utf-8,cp932,euc-jp,sjis
+set encoding=utf-8
+scriptencoding utf-8
+set fileencoding=utf-8
+set fileformat=unix
+set backspace=indent,eol,start
+
+" Visual
+syntax on
+set cursorline
+set number
+set ruler
+set showcmd
+set showmatch
+set matchtime=1
+set laststatus=2
+set formatoptions+=mMj
+set ambiwidth=double
+set display+=lastline
+
+" Search
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+set hlsearch
+nmap <ESC><ESC> :nohlsearch<CR><ESC>
+set wildmode=longest:full,full
+
+" Tab
+set expandtab
+set smarttab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Clipboard
+set clipboard=unnamedplus
+
+" Indent
+set autoindent
+set smartindent
+
+" File
+set nobackup
+set noswapfile
+set autoread
+set hidden
+set splitright
+
+" Keymap
+let mapleader = "\<Space>"
+imap jj <ESC>
+nmap j gj
+nmap k gk
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>nq :q!<CR>
+nmap <Leader>a ggVG
+nmap <Leader>h ^
+nmap <Leader>l $
+vmap <Leader>h ^
+vmap <Leader>l $
+
+" Enviroment
+set undodir=$XDG_CACHE_HOME/vim/undo
+set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim
+let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+
+runtime! dpp/*.vim
+runtime! init/*.vim
