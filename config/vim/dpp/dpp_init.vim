@@ -1,54 +1,39 @@
-const s:dpp_base = expand('$XDG_CACHE_HOME/dpp/')
+const s:dpp_base = '~/.cache/dpp'
+const s:dpp_config = '~/.config/vim/dpp/dpp.ts'
 
-const s:dpp_src = s:dpp_base . 'repos/github.com/Shougo/dpp.vim'
-if &runtimepath !~# 'dpp.vim'
-  if !isdirectory(s:dpp_src)
-    execute '!git clone https://github.com/Shougo/dpp.vim' s:dpp_src
-  endif
-  execute 'set runtimepath^=' .. s:dpp_src
-endif
+let s:dpp_plugins = [
+      \ 'Shougo/dpp.vim',
+      \ 'Shougo/dpp-ext-installer',
+      \ 'Shougo/dpp-ext-lazy',
+      \ 'Shougo/dpp-ext-toml',
+      \ 'Shougo/dpp-protocol-git',
+      \ 'vim-denops/denops.vim',
+      \ ]
 
-const s:denops_src = s:dpp_base . 'repos/github.com/vim-denops/denops.vim'
-if &runtimepath !~# 'denops.vim'
-  if !isdirectory(s:denops_src)
-    execute '!git clone https://github.com/vim-denops/denops.vim' s:denops_src
+for s:plugin in s:dpp_plugins->filter({_, val -> &runtimepath !~# '/' .. val->fnamemodify(':t')})
+  let s:dir = expand(s:dpp_base .. '/repo/github.com/' .. s:plugin)
+  if !(s:dir->isdirectory())
+    execute '!git clone https://github.com/' .. s:plugin s:dir
   endif
-endif
-
-const s:ext_installer = s:dpp_base . 'repos/github.com/Shougo/dpp-ext-installer'
-if &runtimepath !~# 'dpp-ext-installer'
-  if !isdirectory(s:ext_installer)
-    execute '!git clone https://github.com/Shougo/dpp-ext-installer'
-  endif
-  execute 'set runtimepath^=' .. s:ext_installer
-endif
-
-const s:ext_lazy = s:dpp_base . 'repos/github.com/Shougo/dpp-ext-lazy'
-if &runtimepath !~# 'dpp-ext-lazy'
-  if !isdirectory(s:ext_lazy)
-    execute '!git clone https://github.com/Shougo/dpp-ext-lazy'
-  endif
-  execute 'set runtimepath^=' .. s:ext_lazy
-endif
-
-const s:ext_toml = s:dpp_base . 'repos/github.com/Shougo/dpp-ext-toml'
-if &runtimepath !~# 'dpp-ext-toml'
-  if !isdirectory(s:ext_toml)
-    execute '!git clone https://github.com/Shougo/dpp-ext-toml'
-  endif
-  execute 'set runtimepath^=' .. s:ext_toml
-endif
-
-const s:pro_git = s:dpp_base . 'repos/github.com/Shougo/dpp-protocol-git'
-if &runtimepath !~# 'dpp-protocol-git'
-  if !isdirectory(s:pro_git)
-    execute '!git clone https://github.com/Shougo/dpp-protocol-git'
-  endif
-  execute 'set runtimepath^=' .. s:pro_git
-endif
+  execute 'set runtimepath^=' . s:dir->fnamemodify(':p')->substitute('[/\\]$', '', '')
+endfor
 
 if dpp#min#load_state(s:dpp_base)
-  execute 'set runtimepath^=' .. s:denops_src
   autocmd User DenopsReady
-        \ call dpp#make_state(s:dpp_base, '$XDG_CONFIG_HOME/dpp/dpp.ts')
+        \ : echohl WarningMsg
+        \ | echomsg 'dpp load_state() is failed'
+        \ | echohl NONE
+        \ | call dpp#make_state(s:dpp_base, s:dpp_config)
 endif
+
+autocmd User Dpp:makeStatePost
+      \ : echohl WarningMsg
+      \ | echomsg 'dpp make_state() is done'
+      \ | echohl NONE
+
+filetype indent plugin on
+
+if has('syntax')
+  syntax on
+endif
+
