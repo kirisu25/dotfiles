@@ -26,3 +26,6 @@ h.imap("jj", "<ESC>")
 -- Terminal --
 h.tmap("<ESC>", "<C-\\><C-n>")
 h.nmap("<Leader>t", ":bo terminal<CR>")
+
+-- filer --
+h.nmap("<Leader>e", "<cmd>File<CR>")
