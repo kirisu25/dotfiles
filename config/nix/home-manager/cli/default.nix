@@ -4,5 +4,9 @@
     ./git.nix
     ./nix.nix
     ./vim
+    ./zsh
+    ./tools.nix
+    ./xdg.nix
+    ./develop.nix
   ];
 }

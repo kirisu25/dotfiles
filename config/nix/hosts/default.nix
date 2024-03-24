@@ -1,4 +1,17 @@
 inputs: let
+  mkNixosSystem = {
+    system,
+    hostname,
+    username,
+    modules,
+  }:
+    inputs.nixpkgs.lib.nixosSystem {
+      inherit system modules;
+      specialArgs = {
+        inherit inputs hostname username;
+        };
+      };
+
   mkHomeManagerConfiguration = {
     system,
     username,
@@ -36,6 +49,16 @@ inputs: let
       ];
     };
   in {
+    nixos = {
+      x1c6th = mkNixosSystem {
+        system = "x86_64-linux";
+        hostname = "x1carbon6th";
+        username = "kirisu25";
+        modules = [
+          ./x1carbon6th/nixos.nix
+        ];
+      };
+    };
     home-manager = {
       "ubuntu@sakura" = mkHomeManagerConfiguration {
         system = "x86_64-linux";
@@ -43,6 +66,14 @@ inputs: let
         overlays = [(import inputs.rust-overlay)];
         modules = [
           ./sakura/home-manager.nix
+        ];
+      };
+      "kirisu25@x1c6th" = mkHomeManagerConfiguration {
+        system = "x86_64-linux";
+        username = "kirisu25";
+        overlays = [(import inputs.rust-overlay)];
+        modules = [
+          ./x1carbon6th/home-manager.nix
         ];
       };
     };

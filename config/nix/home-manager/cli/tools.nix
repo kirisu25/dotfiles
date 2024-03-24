@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # Utilities
-    exa
+    eza
     bat
     fzf
     ghq
