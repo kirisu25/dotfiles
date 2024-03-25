@@ -4,7 +4,6 @@
     eza
     bat
     fzf
-    ghq
     jq
     lazydocker
     lazygit
@@ -15,5 +14,6 @@
     unrar
     unzip
     zip
+    lha
   ];
              }

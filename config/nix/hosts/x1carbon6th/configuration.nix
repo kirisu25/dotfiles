@@ -176,28 +176,28 @@
 
   virtualisation = {
   	docker = {
-		enable = true;
-		rootless = {
-			enable = true;
-			setSocketVariable = true;
-		};
-	};
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
   };
 
   programs = {
   	git = {
-		enable = true;
-	};
-	neovim = {
-		enable = true;
-		defaultEditor = true;
-	};
-	starship = {
-		enable = true;
-	};
-	zsh = {
-		enable = true;
-	};
+      enable = true;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
+    starship = {
+      enable = true;
+    };
+    zsh = {
+      enable = true;
+    };
   };
 
   # steam
