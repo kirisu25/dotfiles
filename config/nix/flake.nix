@@ -20,6 +20,13 @@
 
     # Remote deployment
     deploy-rs.url = "github:serokell/deploy-rs";
+
+    # xremap
+    xremap.url = "github:xremap/nix-flake";
+
+    # Hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprsome.url = "github:sopa0/hyprsomw";
   };
 
   outputs = inputs: let
