@@ -8,5 +8,6 @@
     ./tools.nix
     ./xdg.nix
     ./develop.nix
+    ./ghq.nix
   ];
 }

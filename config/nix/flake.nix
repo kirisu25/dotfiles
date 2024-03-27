@@ -24,9 +24,10 @@
     # xremap
     xremap.url = "github:xremap/nix-flake";
 
-    # Hyprland
+    # hyprland
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprsome.url = "github:sopa0/hyprsomw";
+    hyprsome.url = "github:sopa0/hyprsome";
+
   };
 
   outputs = inputs: let

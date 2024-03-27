@@ -2,6 +2,7 @@
   imports = [
     ./fcitx5.nix
     ./sound.nix
+    ./hyprland.nix
   ];
 
   programs = {

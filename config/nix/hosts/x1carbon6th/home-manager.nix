@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../home-manager/cli/default.nix
-    ../../home-manager/gui/default.nix
+    ../../home-manager/cli
+    ../../home-manager/gui
   ];
 }
