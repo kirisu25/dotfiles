@@ -2,6 +2,6 @@
 {
   programs.starship = {
     enable = true;
-    settings = builins.fromTOML (builins.readFile ./starship.toml);
+    settings = builtins.fromTOML (builtins.readFile ./starship.toml);
   };
 }

@@ -1,21 +1,12 @@
 {pkgs, ...}: {
   imports = [
-    ../../home-manager/cli/default.nix
-  ];
-
-  home.packages = with pkgs; [
-    #Language
-    ## C
-    gcc
-
-    ## JS/TS
-    nodePackages_latest.nodejs
-    deno
-
-    ## Rust
-    rust-bin.stable.latest.default
-
-    ## go
-    go
+    ../../home-manager/cli/vim
+    ../../home-manager/cli/direnv.nix
+    ../../home-manager/cli/tools.nix
+    ../../home-manager/cli/direnv.nix
+    ../../home-manager/cli/helix.nix
+    ../../home-manager/cli/develop.nix
+    ../../home-manager/cli/git.nix
+    ../../home-manager/cli/ghq.nix
   ];
 }

@@ -9,5 +9,6 @@
     ./xdg.nix
     ./develop.nix
     ./ghq.nix
+    ./helix.nix
   ];
 }

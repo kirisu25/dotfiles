@@ -8,6 +8,17 @@
       enable = true;
       defaultEditor = true;
     };
+    helix = {
+      enable = true;
+      settings = {
+        theme = "tokyonight_night";
+        editor = {
+          line-number = "relative";
+          cursor-shape.insert = "bar";
+          indent-guides.ender = true;
+        };
+      };
+    };
   };
 
   enviroment.systemPackages = with pkgs; [
