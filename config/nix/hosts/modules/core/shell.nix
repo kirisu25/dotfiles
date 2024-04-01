@@ -11,7 +11,7 @@
     helix = {
       enable = true;
       settings = {
-        theme = "tokyonight_night";
+        theme = "tokyonight";
         editor = {
           line-number = "relative";
           cursor-shape.insert = "bar";

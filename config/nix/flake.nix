@@ -30,39 +30,33 @@
 
   };
 
-  outputs = inputs: let
-    allSystems = [
-      "aarch64-linux"
-      "x86_64-linux"
-    ];
-    forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
-  in {
-    nixosConfigurations = (import ./hosts inputs).nixos;
-    homeConfigurations = (import ./hosts inputs).home-manager;
+  outputs = inputs:
+    let
+      allSystems = [ "aarch64-linux" "x86_64-linux" ];
+      forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
+    in {
+      nixosConfigurations = (import ./hosts inputs).nixos;
+      homeConfigurations = (import ./hosts inputs).home-manager;
 
-    devShells = forAllSystems (system: let
-      pkgs = import inputs.nixpkgs {inherit system;};
-      scripts = with pkgs; [
-        (writeScriptBin "switch-home" ''
-          home-manager switch --flake ".#$@"
-        '')
-        (writeScriptBin "switch-nixos" ''
-          sudo nixos-rebuild switch --flake ".#$@"
-        '')
-      ];
-#      devPkgs = [
-#        inputs.deploy-rs.packages.${pkgs.system}.default
-#      ];
-#      in {
-#        default = pkgs.mkShell {
-#          packages = scripts ++ devPkgs;
-#        };
-#      }
-      in {
-        default = pkgs.mkShell {
-          packages = scripts;
-        };
-      }
-    );
-  };
+      devShells = forAllSystems (system:
+        let
+          pkgs = import inputs.nixpkgs { inherit system; };
+          scripts = with pkgs; [
+            (writeScriptBin "switch-home" ''
+              home-manager switch --flake ".#$@"
+            '')
+            (writeScriptBin "switch-nixos" ''
+              sudo nixos-rebuild switch --flake ".#$@"
+            '')
+          ];
+          #      devPkgs = [
+          #        inputs.deploy-rs.packages.${pkgs.system}.default
+          #      ];
+          #      in {
+          #        default = pkgs.mkShell {
+          #          packages = scripts ++ devPkgs;
+          #        };
+          #      }
+        in { default = pkgs.mkShell { packages = scripts; }; });
+    };
 }
