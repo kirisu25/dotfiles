@@ -10,7 +10,7 @@
           insert = "bar";
           select = "underline";
         };
-        mouse = false;
+        whitespace.render = "all";
         auto-format = true;
         completion-replace = true;
         completion-trigger-len = 2;
@@ -21,12 +21,10 @@
       };
     };
 
-    languages.language = [
-      {
-        name = "nix";
-        auto-format = true;
-        formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
-      }
-    ];
+    languages.language = [{
+      name = "nix";
+      auto-format = true;
+      formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+    }];
   };
 }
