@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   fonts = {
   	fonts = with pkgs; [
@@ -9,14 +10,14 @@
     ];
     fontDir.enable = true;
     fontconfig.enable = true;
-#    fontconfig = {
-#      defaultFonts = {
-#        serif = ["Noto Serif CJK JP" "Noto Color Emoji"];
-#        sansSerif = ["Noto Sans CJK JP" "Noto Color Emoji"];
-#        monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-#        emoji = ["Noto Color Emoji"];
-#      };
-#    };
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Noto Serif CJK JP" "Noto Color Emoji"];
+        sansSerif = ["Noto Sans CJK JP" "Noto Color Emoji"];
+        monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
+        emoji = ["Noto Color Emoji"];
+      };
+    };
   };
 
 }

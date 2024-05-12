@@ -22,10 +22,10 @@
   };
 
   # Swap
-  zramSwap = {
-    enable = true;
-    memoryPercent = 200;
-  };
+  #zramSwap = {
+  #  enable = true;
+  #  memoryPercent = 200;
+  #};
 
   # Configure console keymap
   console.keyMap = "jp106";
@@ -34,7 +34,7 @@
   services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  user.mutableUsers = false;
+  #user.mutableUsers = false;
   users.users."${username}" = {
     isNormalUser = true;
     hashedPassword = "$6$dlR96pEcLEZES/KE$poXpNrlqUmI3cklgw/xKWY9862zt53dy2Xngo.dzgPBPUmH5C5m2aKhMkf8K/tFOFo3jYv.Oi24y5Q.7ZjyuD0";

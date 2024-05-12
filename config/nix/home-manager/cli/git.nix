@@ -14,13 +14,13 @@
         grep = "auto";
       };
       init.DefaultBranch = "main";
-      ignores = [
-        ".direnv"
-        ".vscode/"
-        "__pycache__/"
-        ".ipynv_checkpoints"
-        ".venv/"
-      ];
+      #ignores = [
+      #  ".direnv"
+      #  ".vscode/"
+      #  "__pycache__/"
+      #  ".ipynv_checkpoints"
+      #  ".venv/"
+      #];
     };
   };
 

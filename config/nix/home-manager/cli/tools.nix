@@ -8,6 +8,7 @@
     lazydocker
     lazygit
     ripgrep
+    xclip
 
     # Archves
     unar

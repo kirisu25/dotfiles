@@ -3,7 +3,7 @@
     ./wezterm
     ./discord.nix
     ./browser.nix
-    ./steam.nix
+    #./steam.nix
     ./gtk.nix
     ./tools.nix
   ];

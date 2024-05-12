@@ -1,11 +1,11 @@
 {config, hostname, ...}:
 {
   networking = {
-    hostname = hostname;
+    hostName = hostname;
     networkmanager.enable = true;
   };
 
   services.openssh.enable = true;
 
-  systemd.services.NetworkManager-wait-online.enable = false;
+  #systemd.services.NetworkManager-wait-online.enable = false;
 }

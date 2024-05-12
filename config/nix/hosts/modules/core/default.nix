@@ -6,7 +6,8 @@
     ./xremap.nix
     ./network.nix
     ./fonts.nix
-    ./nix-ld.nix
+    #./nix-ld.nix
     ./shell.nix
+    #./xserver.nix
   ];
 }
