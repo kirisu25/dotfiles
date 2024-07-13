@@ -57,12 +57,12 @@ colors:
 
 # Font
 font:
-  size: 10
+  size: 14
   normal:
-    family: 'HackGen35 Console NFJ'
+    family: 'UDEV Gothic NFLG'
     style: Regular
   bold:
-    family: 'HackGen35 Console NFJ'
+    family: 'UDEV Gothic NFLG'
     style: Bold
       #  italic:
       #    family: 'RictyDiminished NF'

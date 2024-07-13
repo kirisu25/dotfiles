@@ -69,6 +69,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 zstyle ':completion:*' list-colors $LSCOLORS
 #---------------------------------------------------
+### function
+#---------------------------------------------------
+[ -f $ZDOTDIR/function.zsh ] && source $ZDOTDIR/function.zsh
+#---------------------------------------------------
 ### ranger
 #---------------------------------------------------
 if [[ $(command -v ranger) ]]; then

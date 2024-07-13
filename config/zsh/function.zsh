@@ -1,3 +1,5 @@
+# w3m
+
 function google() {
     local str opt
     if [ $# != 0 ]; then
@@ -10,3 +12,20 @@ function google() {
     fi
     w3m http://www.google.co.jp/$opt
 }
+
+# ghq
+if [[ $(command -v rg) ]] && [[ $(command -v fzf) ]]; then
+    move_ghq_directories() {
+      selected=`ghq list | fzf`
+      if [ ${#selected} -gt 0 ]
+      then
+        target_dir="`ghq root`/$selected"
+        echo "cd $target_dir"
+        cd $target_dir
+        zle accept-line
+      fi
+    }
+    zle -N move_ghq_directories
+    bindkey "^]" move_ghq_directories
+fi
+

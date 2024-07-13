@@ -1,0 +1,53 @@
+raw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x1c61c2"
+blue = "0x00ff00"
+cyan = "0x0abdc6"
+green = "0xd300c4"
+magenta = "0x711c91"
+red = "0xff0000"
+white = "0xd7d7d5"
+yellow = "0xf57800"
+
+[colors.dim]
+black = "0x1c61c2"
+blue = "0x123e7c"
+cyan = "0x0abdc6"
+green = "0xd300c4"
+magenta = "0x711c91"
+red = "0xff0000"
+white = "0xd7d7d5"
+yellow = "0xf57800"
+
+[colors.normal]
+black = "0x123e7c"
+blue = "0x123e7c"
+cyan = "0x0abdc6"
+green = "0xd300c4"
+magenta = "0x711c91"
+red = "0xff0000"
+white = "0xd7d7d5"
+yellow = "0xf57800"
+
+[colors.primary]
+background = "0x000b1e"
+foreground = "0x0abdc6"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 14
+
+[font.bold]
+family = "UDEV Gothic NFLG"
+style = "Bold"
+
+[font.normal]
+family = "UDEV Gothic NFLG"
+style = "Regular"
+
+[scrolling]
+history = 10000
+multiplier = 3

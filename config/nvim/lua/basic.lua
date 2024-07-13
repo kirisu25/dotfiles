@@ -2,8 +2,8 @@
 local options = {
 	helplang = "ja",
 	termguicolors = true,
-	winblend = 5,
-	pumblend = 5,
+	winblend = 0,
+	pumblend = 0,
 	encoding = "utf-8",
 	fileencoding = "utf-8",
 	title = true,
@@ -42,3 +42,7 @@ end
 vim.cmd("autocmd TermOpen * :startinsert")
 vim.cmd("autocmd TermOpen * setlocal norelativenumber")
 vim.cmd("autocmd TermOpen * setlocal nonumber")
+
+-- ipython --
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"

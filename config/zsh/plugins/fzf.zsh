@@ -1,9 +1,9 @@
-zinit lucid as=program pick="$ZPFX/bin/fzf-tmux" \
-    atclone="cp bin/fzf-tmux $ZPFX/bin" \
-    make="PREFIX=$ZPFX install" for \
-        junegunn/fzf
+zinit lucid as=program pick="$ZPFX/bin/(fzf|fzf-tmux)" \
+    atclone="cp shell/completion.zsh _fzf_completion; cp bin/fzf-tmux $ZPFX/bin/fzf-tmux" \
+    make="PREFIX=$ZPFX install" \
+    for junegunn/fzf
 
-# path
+## path
 if [[ ! "$PATH" == ${HOME}/.local/share/zinit/plugins/junegunn---fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}${HOME}/.local/share/zinit/plugins/junegunn---fzf/bin"
 fi
