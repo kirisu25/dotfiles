@@ -17,10 +17,11 @@ end)
 config.initial_cols = 120
 config.initial_rows = 35
 config.prefer_egl = true
-config.window_background_opacity = 0.70
-config.text_background_opacity = 1
+config.window_background_opacity = 0.85
+config.text_background_opacity = 0
 config.adjust_window_size_when_changing_font_size = true
 config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = true
 config.color_scheme = "tokyonight"
 config.enable_kitty_graphics=true
 
