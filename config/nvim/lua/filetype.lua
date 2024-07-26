@@ -1,6 +1,14 @@
 local M = {}
 local h = require("util.helper")
 
+-- vim.filetype.add {
+--     pattern = {
+--         ['.*%.ipynb.*'] = 'ipynb',
+--         -- uses lua pattern matching
+--         -- rathen than naive matching
+--     },
+-- }
+
 local function set_indent(tab_length, is_hard_tab)
 	if is_hard_tab then
 		vim.bo.expandtab = false
@@ -11,6 +19,10 @@ local function set_indent(tab_length, is_hard_tab)
 	vim.bo.shiftwidth = tab_length
 	vim.bo.softtabstop = tab_length
 	vim.bo.tabstop = tab_length
+end
+
+M.python = function()
+  set_indent(2, true)
 end
 
 M.go = function()
