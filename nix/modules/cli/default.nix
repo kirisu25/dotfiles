@@ -3,7 +3,7 @@
     ./zsh
     ./tools.nix
     ./dev.nix
-    ./nu.nix
+    # ./nu.nix
     ./helix
     ./git.nix
     ./direnv.nix

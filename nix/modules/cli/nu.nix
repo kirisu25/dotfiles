@@ -30,8 +30,9 @@
                )
       '';
     };
-    carapace.enable = true;
-    carapace.enableNushellIntegration = true;
+    # carapace.enable = true;
+    # carapace.enableNushellIntegration = true;
+    # carapace.enableZshIntegration = true;
 
     # starship = {
     #   enable = true;
