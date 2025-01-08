@@ -123,12 +123,13 @@
   services.libinput.mouse.accelProfile = "flat";
 
   # Hyprland
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   portalPackage =
+  #     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  # };
+  programs.hyprland.enable = true;
   services.xremap.withWlroots = true;
 
   # xremap
@@ -169,7 +170,8 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.nushell;
+    # shell = pkgs.nushell;
+    shell = pkgs.zsh;
     packages = with pkgs; [
     ];
   };
@@ -178,18 +180,45 @@
     git = {
       enable = true;
     };
+
     neovim = {
       enable = true;
       defaultEditor = true;
       viAlias = true;
     };
+
     starship = {
       enable = true;
     };
+
     zsh = {
       enable = true;
+      enableCompletion = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
     };
+
+    firefox = {
+      enable = true;
+    };
+
     nix-ld.enable = true;
+
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+  };
+
+  # font override to steam
+  nixpkgs.config.packageOverrides = pkgs: {
+    steam = pkgs.steam.override {
+      extraPkgs =
+        pkgs: with pkgs; [
+          migu
+        ];
+    };
   };
 
   # Docker
@@ -202,9 +231,6 @@
       };
     };
   };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

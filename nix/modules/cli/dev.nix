@@ -1,16 +1,17 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
- home.packages = with pkgs; [
-  # Rust
-  (fenix.combine [
-   fenix.stable.toolchain
-  ])
+  home.packages = with pkgs; [
+    nix-ld
+    # Rust
+    (fenix.combine [
+      fenix.stable.toolchain
+    ])
 
-  # Go
-  go
+    # Go
+    go
 
-  # JS/TS
-  nodejs-slim
-  deno
- ];
+    # JS/TS
+    nodejs-slim
+    deno
+  ];
 }
