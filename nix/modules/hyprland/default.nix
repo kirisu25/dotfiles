@@ -45,6 +45,9 @@
       wineWowPackages.wayland
       winetricks
       networkmanagerapplet
+      hyprcursor
+      nordzy-icon-theme
+      nordzy-cursor-theme
     ])
     ++ [
       inputs.hyprsome.packages.${pkgs.system}.default # workspace manager
