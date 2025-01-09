@@ -50,6 +50,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # networking.wireless.enable = true;
+  networking.wireless.userControlled.enable = true;
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
