@@ -1,10 +1,10 @@
 {
     "position": "bottom", 
     "height": 30,
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-right": ["network", "pulseaudio", "battery", "custom/date", "clock", "custom/power"],
     // Modules configuration
-	"sway/workspaces": {
+	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
 		"format": "{icon}",
@@ -36,7 +36,7 @@
 	"custom/date": {
     		"format": "󰸗 {}",
 		"interval": 3600,
-		"exec": "$HOME/bin/waybar-date.sh"
+		"exec": "waybar-date"
 	},
 	"custom/power": {
 		"format": "󰐥",
