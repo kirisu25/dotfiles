@@ -53,13 +53,10 @@
       inputs.hyprsome.packages.${pkgs.system}.default # workspace manager
     ];
 
-  # home.file = {
-  #   "paper.jpg" = {
-  #     target = ".config/hypr/wallpaper/paper.jpg";
-  #     source = pkgs.fetchurl {
-  #       url = "https://w.wallhaven.cc/full/yj/wallhaven-yjmmvx.jpg";
-  #       sha256 = "sha256-iXiHRK6ocPQ80jfP8U6pXMEy0lKW/Glop4uoaTEBW8c=";
-  #     };
-  #   };
-  # };
+  home.file = {
+    "paper.jpg" = {
+      target = ".config/hypr/wallpaper/paper.jpg";
+      source = ./images/paper.jpg;
+    };
+  };
 }
