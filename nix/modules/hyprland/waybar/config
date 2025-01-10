@@ -40,7 +40,7 @@
 	},
 	"custom/power": {
 		"format": "󰐥",
-		"on-click": "$HOME/bin/waybar-power.sh"
+		"on-click": "wlogout"
 	},
 	"clock": {
 		"format": "󰅐 {:%H:%M}",
