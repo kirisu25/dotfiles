@@ -2,6 +2,6 @@
 **/.zcompdump*
 **/.zsh_history
 **/.zshrc.local
-**/flake.lock
+# **/flake.lock
 **/nix.conf
 config/vim/vimrc
