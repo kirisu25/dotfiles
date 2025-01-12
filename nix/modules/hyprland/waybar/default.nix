@@ -5,6 +5,11 @@ let
   '';
 in
 {
+
+  imports = [
+    ./scripts/shell.nix
+  ];
+
   home.packages = with pkgs; [
     waybar
     waybar-date

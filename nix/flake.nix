@@ -25,6 +25,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # poetry2nix
+    poetry2nix = {
+      url = "github:nix-community/poetry2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs: {
@@ -45,7 +51,10 @@
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
-          overlays = [ inputs.fenix.overlays.default ];
+          overlays = [
+            inputs.fenix.overlays.default
+            inputs.poetry2nix.overlays.default
+          ];
         };
         extraSpecialArgs = {
           inherit inputs;

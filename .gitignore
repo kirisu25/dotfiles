@@ -4,4 +4,5 @@
 **/.zshrc.local
 # **/flake.lock
 **/nix.conf
+**/.direnv
 config/vim/vimrc
