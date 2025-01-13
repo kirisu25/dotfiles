@@ -9,29 +9,32 @@
   };
 
   outputs =
-    {
+    inputs@{
+      self,
       nixpkgs,
       flake-utils,
-      poetry2nix,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ poetry2nix.overlays.default ];
-        };
-        waybar-wtr = pkgs.poetry2nix.mkPoetryApplication { projectDir = ./.; };
+        pkgs = nixpkgs.legacyPackages.${system};
+        poetry2nix = inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; };
       in
+      # waybar-wtr = pkgs.poetry2nix.mkPoetryApplication { projectDir = ./.; };
       {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
+          nativeBuildInputs = with pkgs; [
             python312Full
             poetry
           ];
         };
-        packages.default = pkgs.callPackage waybar-wtr;
+        packages = {
+          waybar-wtr = poetry2nix.mkPoetryApplication {
+            profectDir = ./waybar-wtr/.;
+          };
+          defaut = self.packages.${system}.waybar-wtr;
+        };
       }
     );
 }

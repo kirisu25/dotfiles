@@ -5,4 +5,5 @@
 # **/flake.lock
 **/nix.conf
 **/.direnv
+**/.ruff_cache
 config/vim/vimrc

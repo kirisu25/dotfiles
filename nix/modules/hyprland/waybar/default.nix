@@ -3,19 +3,16 @@ let
   waybar-date = pkgs.writeScriptBin "waybar-date" ''
     date +"%y/%m/%d:%a"
   '';
+
 in
+# waybar-wtr = pkgs.poetry2nix.mkPoetryApplication {
+#   profectDir = ./scripts/.;
+# };
 {
-
-  imports = [
-    ./scripts/shell.nix
-  ];
-
   home.packages = with pkgs; [
     waybar
     waybar-date
-    # (writeShellScriptBin "waybar-date" ''
-    #   date +"%y/%m/%d:%a"
-    # '')
+    # waybar-wtr
   ];
 
   xdg.configFile."waybar/config".source = ./config;
