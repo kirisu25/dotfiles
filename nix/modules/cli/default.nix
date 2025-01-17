@@ -7,5 +7,6 @@
     ./helix
     ./git.nix
     ./direnv.nix
+    ./yazi
   ];
 }
