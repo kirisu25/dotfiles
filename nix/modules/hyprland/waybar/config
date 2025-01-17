@@ -1,6 +1,6 @@
 {
     "position": "top", 
-    "height": 30,
+    "height": 42,
     "modules-left": ["hyprland/workspaces"],
     "modules-right": ["network", "pulseaudio", "battery", "custom/date", "clock", "custom/power"],
     // Modules configuration
@@ -78,5 +78,6 @@
             "car": "",
             "default": ["", "", ""]
         },
+		"on-click": "pavucontrol"
     }
 }
