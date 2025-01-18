@@ -245,6 +245,7 @@
     kitty
     wofi
     pavucontrol
+    mako
   ];
 
   services.greetd = {
