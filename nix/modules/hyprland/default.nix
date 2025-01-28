@@ -34,6 +34,7 @@
     ./waybar
     ./ranger
     ./wofi
+    ./mako
   ];
 
   home.packages =
