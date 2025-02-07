@@ -2,10 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs,
+{
+  inputs,
   config,
   pkgs,
-  ... }:
+  ...
+}:
 
 {
   imports =
@@ -24,15 +26,18 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   nix = {
-	settings = {
-    auto-optimise-store = true;
-		experimental-features = ["nix-command" "flakes"];
-	};
-  gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
   # Allow unfree packages
@@ -48,12 +53,12 @@
   };
 
   # Load nvidia driver for Xorg & Wayland
-  # services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # hardware.nvidia = {
-  #   prime = {
-  #     nvidiaBusId = "PCI:2:B:0";
-  #   };
+  #   # prime = {
+  #   #   nvidiaBusId = "PCI:2:B:0";
+  #   # };
   #   modesetting.enable = true;
   #   nvidiaSettings = true;
   #   open = false;
@@ -167,10 +172,13 @@
   users.users.kirisu25 = {
     isNormalUser = true;
     description = "kirisu25";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -205,17 +213,17 @@
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
-    };  
+    };
   };
-    # font override to steam
-    nixpkgs.config.packageOverrides = pkgs: {
-      steam = pkgs.steam.override {
-        extraPkgs =
-          pkgs: with pkgs; [
-            migu
-          ];
-      };
-      };
+  # font override to steam
+  nixpkgs.config.packageOverrides = pkgs: {
+    steam = pkgs.steam.override {
+      extraPkgs =
+        pkgs: with pkgs; [
+          migu
+        ];
+    };
+  };
 
   # Docker
   virtualisation = {
@@ -236,6 +244,7 @@
     wofi
     pavucontrol
     mako
+    linuxKernel.packages.linux_zen.xone
   ];
   services.greetd = {
     enable = true;
