@@ -43,8 +43,9 @@
       wl-clipboard
       wlogout
       wireplumber
-      wineWowPackages.wayland
+      wineWowPackages.waylandFull
       winetricks
+      protontricks
       unzip
       networkmanagerapplet
       hyprcursor
