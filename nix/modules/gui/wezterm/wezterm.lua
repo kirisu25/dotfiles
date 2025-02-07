@@ -20,6 +20,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.show_close_tab_button_in_tabs = false
 config.color_scheme = "nord"
+config.enable_wayland = false
 
 -- font
 config.font_size = 14.0

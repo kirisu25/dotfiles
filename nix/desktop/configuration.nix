@@ -246,6 +246,10 @@
     mako
     linuxKernel.packages.linux_zen.xone
   ];
+
+  # xbox wireless usb dongle
+  hardware.xone.enable = true;
+
   services.greetd = {
     enable = true;
     settings = {
