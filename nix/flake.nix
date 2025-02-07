@@ -44,6 +44,16 @@
           inherit inputs;
         };
       };
+
+      nixosDT = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./desktop/configuration.nix
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
     };
 
     homeConfigurations = {
@@ -61,6 +71,23 @@
         };
         modules = [
           ./home.nix
+        ];
+      };
+
+      dtHome = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = import inputs.nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+          overlays = [
+            inputs.fenix.overlays.default
+            inputs.poetry2nix.overlays.default
+          ];
+        };
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./desktop/home.nix
         ];
       };
     };
