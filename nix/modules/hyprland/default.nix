@@ -45,6 +45,7 @@
       wireplumber
       wineWowPackages.wayland
       winetricks
+      unzip
       networkmanagerapplet
       hyprcursor
       nordzy-icon-theme
