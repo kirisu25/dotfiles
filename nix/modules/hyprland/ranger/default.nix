@@ -13,7 +13,7 @@
     libarchive
     unrar
     p7zip
-    toybox
+    # toybox
   ];
   xdg.configFile."ranger/rc.conf".source = ./rc.conf;
   xdg.configFile."ranger/rifle.conf".source = ./rifle.conf;

@@ -242,6 +242,10 @@
     pavucontrol
     mako
     linuxKernel.packages.linux_zen.xone
+    wineWowPackages.stable
+    # wineWowPackages.waylandFull
+    winetricks
+    wget
   ];
 
   # xbox wireless usb dongle
