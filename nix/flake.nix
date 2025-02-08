@@ -38,7 +38,7 @@
       myNixOS = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./laptop/configuration.nix
         ];
         specialArgs = {
           inherit inputs;
@@ -70,7 +70,7 @@
           inherit inputs;
         };
         modules = [
-          ./home.nix
+          ./laptop/home.nix
         ];
       };
 
