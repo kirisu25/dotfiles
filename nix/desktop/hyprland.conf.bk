@@ -25,7 +25,7 @@
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 # monitor=,preferred,auto,auto
-monitor=,highres,auto,1
+monitor=HDMI-A-1,2560x1440@143,0x0,1
 
 
 ###################
@@ -49,7 +49,6 @@ $menu = wofi --show drun
 
 # exec-once = $terminal
 # exec-once = nm-applet &
-# exec-once = waybar & hyprpaper & firefox
 exec-once = swww init && swww img ~/.config/hypr/wallpaper/paper.jpg
 exec-once = fcitx5 -D
 exec-once = waybar
@@ -62,13 +61,12 @@ exec-once = mako
 
 # See https://wiki.hyprland.org/Configuring/Environment-variables/
 
-env = HYPRCURSOR_THEME, Nordzy-cursors
-env = XCURSOR_THEME, Nordzy-cursors
 env = XCURSOR_SIZE,24
 env = HYPRCURSOR_SIZE,24
 env = GTK_IM_MODULE, fcitx
 env = QT_IM_MODULE, fcitx
 env = XMODIFIERS, @im=fcitx
+
 
 #####################
 ### LOOK AND FEEL ###
@@ -169,12 +167,12 @@ dwindle {
 
 # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
 master {
-    new_status = dwlndle
+    new_status = master
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#misc
 misc {
-    force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
+    force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
     disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
 }
 
@@ -197,14 +195,12 @@ input {
 
     touchpad {
         natural_scroll = false
-    	clickfinger_behavior = true
-    	tap-to-click = true
     }
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#gestures
 gestures {
-    workspace_swipe = true
+    workspace_swipe = false
 }
 
 # Example per-device config
@@ -226,20 +222,24 @@ $mainMod = SUPER # Sets "Windows" key as main modifier
 bind = $mainMod, RETURN, exec, $terminal
 bind = $mainMod, Q, killactive,
 bind = $mainMod, M, exit,
-bind = $mainMod, E, exec, wezterm -e ranger
+bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, R, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
-bind = $mainMod, I, togglesplit, # dwindle
-bind = $mainMod SHIFT, RETURN, exec, wlogout
+bind = $mainMod, J, togglesplit, # dwindle
 bind = $mainMod, B, exec, firefox
+bind = $mainMod SHIFT, RETURN, exec, wlogout
 bind = $mainMod, F, fullscreen
 
 # Move focus with mainMod + arrow keys
-bind = $mainMod, L, movefocus, l
-bind = $mainMod, H, movefocus, r
-bind = $mainMod, K, movefocus, u
-bind = $mainMod, J, movefocus, d
+bind = $mainMod, h, movefocus, l
+bind = $mainMod, l, movefocus, r
+bind = $mainMod, k, movefocus, u
+bind = $mainMod, j, movefocus, d
+bind = ALT, h, movefocus, l
+bind = ALT, l, movefocus, r
+bind = ALT, k, movefocus, u
+bind = ALT, j, movefocus, d
 
 # Switch workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1
@@ -309,7 +309,3 @@ windowrulev2 = suppressevent maximize, class:.*
 
 # Fix some dragging issues with XWayland
 windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
-
-xwayland {
-    force_zero_scaling = true
-}
