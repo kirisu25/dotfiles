@@ -32,7 +32,7 @@ config.font = wezterm.font_with_fallback({
 })
 
 -- Leader key
-config.leader = { key = ",", mods = "CTRL", time_millisecons = 1000 }
+config.leader = { key = "b", mods = "CTRL", time_millisecons = 1000 }
 
 -- keybinds
 config.disable_default_key_bindings = true
