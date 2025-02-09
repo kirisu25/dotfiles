@@ -43,10 +43,7 @@
       wl-clipboard
       wlogout
       wireplumber
-      # wineWowPackages.stable
-      # wineWowPackages.waylandFull
-      # winetricks
-      protontricks
+      gtk3
       unzip
       networkmanagerapplet
       hyprcursor
