@@ -1,38 +1,30 @@
 { inputs, pkgs, ... }:
 {
-  #wayland.windowManager.hyprland = {
-  # enable = true;
-  # xwayland.enable = true;
-  #};
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
-  #home.file = {
-  # "hyprland.conf" = {
-  #  target = ".config/hypr/hyprland.conf";
-  #  source = "./hyprland.conf";
-  # };
-  #};
+  wayland.windowManager.hyprland.settings = {
+    env = [
+      "GTK_IM_MODULE, fcitx"
+      "QT_IM_MODULE, fcitx"
+      "XMODIFIERS, @im=fcitx"
+    ];
 
-  #wayland.windowManager.hyprland.settings = {
-  # env = [
-  #  "GTK_IM_MODULE, fcitx"
-  #  "QT_IM_MODULE, fcitx"
-  #  "XMODIFIERS, @im=fcitx"
-  # ];
+    exec-once = [
+      "fcitx5 -D"
+      "waybar"
+      # "dunst"
+    ];
 
-  # exec-once = [
-  #  "fcitx5 -D"
-  #  "waybar"
-  #  "dunst"
-  # ];
-
-  # "$mainMod" = "SUPER";
-  # "$subMod" = "ALT";
-  # "$term" = "kitty";
-  #};
+    "$mainMod" = "SUPER";
+    "$subMod" = "ALT";
+  };
 
   imports = [
     ./waybar
-    ./ranger
+    # ./ranger
     ./wofi
     ./mako
   ];
