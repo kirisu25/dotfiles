@@ -54,6 +54,10 @@
 
   # Load nvidia driver for Xorg & Wayland
   services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.kernelParams = [
+    "video=HDMI-A-1:2560x1440@144"
+    "video=HDMI-A-2:1920x1080@60"
+  ];
 
   # hardware.nvidia = {
   #   # prime = {
