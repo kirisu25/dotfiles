@@ -132,8 +132,6 @@
     };
   };
 
-  xdg.portal.enable = true;
-
   # xserver
   services.xserver = {
     enable = true;
@@ -144,6 +142,7 @@
   # hyprland
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
+  xdg.portal.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
