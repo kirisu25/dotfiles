@@ -17,7 +17,7 @@
     ++ (with inputs.nixos-hardware.nixosModules; [
       common-pc-ssd
       common-cpu-amd
-      # common-gpu-nvidia
+      common-gpu-amd
     ]);
 
   system.stateVersion = "24.05"; # Did you read the comment?
@@ -53,7 +53,7 @@
   };
 
   # Load nvidia driver for Xorg & Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # hardware.nvidia = {
   #   # prime = {
@@ -248,6 +248,8 @@
     # wineWowPackages.waylandFull
     winetricks
     wget
+    amdgpu_top
+    rocmPackages.rocm-comgr
   ];
 
   # xbox wireless usb dongle
