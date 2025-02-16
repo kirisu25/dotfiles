@@ -8,5 +8,6 @@
     ./git.nix
     ./direnv.nix
     ./yazi
+    ./zellij
   ];
 }

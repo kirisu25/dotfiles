@@ -4,6 +4,6 @@
     ./tools.nix
     ./discord.nix
     ./wezterm
-    ./alacritty
+    ./alacritty.nix
   ];
 }
