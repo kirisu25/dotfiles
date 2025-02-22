@@ -46,11 +46,18 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   # gup
   hardware.graphics = {
     enable = true;
   };
+  hardware.graphics.extraPackages = [
+    pkgs.amdvlk
+  ];
+  hardware.opengl.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
+  ];
 
   # Load nvidia driver for Xorg & Wayland
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -254,6 +261,7 @@
     wget
     amdgpu_top
     rocmPackages.rocm-comgr
+    clinfo
   ];
 
   # xbox wireless usb dongle
