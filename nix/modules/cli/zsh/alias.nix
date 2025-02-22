@@ -15,4 +15,7 @@
   ".." = "cd ..";
   "..." = "cd ../..";
   "...." = "cd ../../..";
+
+  # nix
+  "flakeupdate" = "nix flake update";
 }

@@ -11,7 +11,12 @@
 
     shellAliases = import ./alias.nix;
 
+    history.size = 100000;
+
     initExtra = ''
+      # history
+      setopt hist_ignore_dups
+
       # nix
       export NIXPKGS_ALLOW_UNFREE=1
 
