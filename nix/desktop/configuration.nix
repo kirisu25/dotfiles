@@ -52,10 +52,8 @@
   hardware.graphics = {
     enable = true;
   };
-  hardware.graphics.extraPackages = [
-    pkgs.amdvlk
-  ];
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
+    amdvlk
     rocmPackages.clr.icd
   ];
 
