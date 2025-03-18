@@ -52,16 +52,16 @@
   hardware.graphics = {
     enable = true;
   };
-  hardware.graphics.extraPackages = with pkgs; [
-    amdvlk
-    rocmPackages.clr.icd
-  ];
+  # hardware.graphics.extraPackages = with pkgs; [
+  #   amdvlk
+  #   rocmPackages.clr.icd
+  # ];
 
   # Load nvidia driver for Xorg & Wayland
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.kernelParams = [
-    "video=HDMI-A-1:2560x1440@144"
-    "video=HDMI-A-2:1920x1080@60"
+    "video=DP-2:2560x1440@180"
+    "video=HDMI-A-1:1920x1080@60"
   ];
 
   # hardware.nvidia = {
@@ -242,7 +242,14 @@
       };
     };
     multipass.enable = true;
+    virtualbox.host = {
+      enable = true;
+      enableKvm = true;
+      enableHardening = false;
+      addNetworkInterface = false;
+    };
   };
+  users.extraGroups.vboxusers.members = [ "kirisu25" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -260,6 +267,7 @@
     amdgpu_top
     rocmPackages.rocm-comgr
     clinfo
+    virtualboxKvm
   ];
 
   # xbox wireless usb dongle
