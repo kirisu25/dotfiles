@@ -268,6 +268,7 @@
     rocmPackages.rocm-comgr
     clinfo
     virtualboxKvm
+    bottom
   ];
 
   # xbox wireless usb dongle

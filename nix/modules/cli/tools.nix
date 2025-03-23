@@ -10,6 +10,7 @@
     lazygit
     ripgrep
     xclip
+    bottom
 
     # Archves
     # unar
