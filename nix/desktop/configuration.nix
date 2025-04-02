@@ -194,10 +194,10 @@
       enable = true;
     };
 
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
+    # neovim = {
+    #   enable = true;
+    #   defaultEditor = true;
+    # };
 
     starship = {
       enable = true;
