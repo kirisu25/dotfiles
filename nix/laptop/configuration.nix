@@ -187,11 +187,11 @@
       enable = true;
     };
 
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-    };
+    # neovim = {
+    #   enable = true;
+    #   defaultEditor = true;
+    #   viAlias = true;
+    # };
 
     starship = {
       enable = true;
