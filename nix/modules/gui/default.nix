@@ -5,5 +5,6 @@
     ./discord.nix
     ./wezterm
     ./alacritty.nix
+    ./ghostty
   ];
 }
