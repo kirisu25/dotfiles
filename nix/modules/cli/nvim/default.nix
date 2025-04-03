@@ -3,6 +3,7 @@ let
   buildInputs = with pkgs; [
     deno
     lazygit
+    ripgrep
   ];
   lsp = with pkgs; [
     # lua
@@ -64,5 +65,6 @@ in
   xdg.configFile = configFiles [
     "./init.lua"
     "./lua/plugins/ui.lua"
+    "./lua/plugins/misc.lua"
   ];
 }

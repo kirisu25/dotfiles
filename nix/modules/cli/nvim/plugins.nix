@@ -22,4 +22,9 @@ plugins [
   tokyonight-nvim
   lualine-nvim
   nvim-web-devicons
+  plenary-nvim
+  neo-tree-nvim
+  nui-nvim
+  nvim-autopairs
+  telescope-nvim
 ]
