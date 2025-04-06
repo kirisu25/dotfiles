@@ -147,6 +147,7 @@ return {
 				"solargraph",
 				"terraformls",
 				"ts_ls",
+        "zls",
 			}) do
 				lspconfig[ls].setup({
 					capabilities = capabilities,
