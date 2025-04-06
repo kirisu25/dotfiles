@@ -27,4 +27,17 @@ plugins [
   nui-nvim
   nvim-autopairs
   telescope-nvim
+  nvim-treesitter
+  trouble-nvim
+  nvim-lspconfig
+  none-ls-nvim
+  lspsaga-nvim
+  lspkind-nvim
+  luasnip
+  cmp-buffer
+  cmp-cmdline
+  cmp-nvim-lsp
+  cmp-path
+  cmp_luasnip
+  nvim-cmp
 ]

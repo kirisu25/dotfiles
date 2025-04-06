@@ -4,14 +4,27 @@ let
     deno
     lazygit
     ripgrep
+    nodejs_23
   ];
   lsp = with pkgs; [
+    # bash
+    nodePackages.bash-language-server
+    shellcheck
+    shfmt
+    #docker
+    nodePackages.dockerfile-language-server-nodejs
+    docker-compose-language-service
     # lua
     lua-language-server
     stylua
     # nix
     nil
     nixfmt-rfc-style
+    # Python
+    pyright
+    ruff-lsp
+    # typescript
+    nodePackages.typescript-language-server
   ];
   parsers =
     p: with p; [
@@ -21,6 +34,7 @@ let
       css
       dockerfile
       fish
+      go
       lua
       make
       markdown
@@ -37,6 +51,7 @@ let
       vim
       vimdoc
       yaml
+      zig
     ];
   plugins = import ./plugins.nix { inherit pkgs; };
   configFile = file: {
@@ -66,5 +81,6 @@ in
     "./init.lua"
     "./lua/plugins/ui.lua"
     "./lua/plugins/misc.lua"
+    "./lua/plugins/lsp.lua"
   ];
 }
