@@ -43,4 +43,5 @@ plugins [
   telescope-nvim
   tokyonight-nvim
   trouble-nvim
+  toggleterm-nvim
 ]

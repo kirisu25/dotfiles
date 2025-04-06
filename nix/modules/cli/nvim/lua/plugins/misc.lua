@@ -67,4 +67,26 @@ return {
       vim.opt.runtimepath:append("@ts_parser_dirs@")
     end,
   },
+  {
+    name = "toggleterm.nvim",
+    dir = "@toggleterm_nvim@",
+    cmd = "ToggleTerm",
+    keys = {"<LEADER><c-/>", "[[c-/]]"},
+    config = function()
+      require("toggleterm").setup {
+        close_on_exit = true,
+        direction = "float",
+        insert_mappings = true,
+        open_mapping = [[<c-/>]],
+        persist_size = true,
+        shade_filetypes = {},
+        shade_terminals = true,
+        shading_factor = 2,
+        size = 100,
+        start_in_insert = true,
+      }
+    end,
+
+    vim.keymap.set("n", "<LEADER><c-/>", ":ToggleTerm size=10 direction=horizontal<CR>")
+  },
 }
