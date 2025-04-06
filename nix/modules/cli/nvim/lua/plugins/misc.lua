@@ -70,8 +70,7 @@ return {
   {
     name = "toggleterm.nvim",
     dir = "@toggleterm_nvim@",
-    cmd = "ToggleTerm",
-    keys = {"<LEADER><c-/>", "[[c-/]]"},
+    event = "VeryLazy",
     config = function()
       require("toggleterm").setup {
         close_on_exit = true,
