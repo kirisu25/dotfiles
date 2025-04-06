@@ -3,9 +3,9 @@
   home.packages = with pkgs; [
     nix-ld
     # Rust
-    (fenix.combine [
-      fenix.stable.toolchain
-    ])
+    # (fenix.combine [
+    #   fenix.stable.toolchain
+    # ])
 
     # Go
     go
