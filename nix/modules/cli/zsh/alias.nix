@@ -18,4 +18,10 @@
 
   # nix
   "flakeupdate" = "nix flake update";
+
+  # git
+  gad = "git add";
+  gcm = "git commit";
+  gpu = "git push";
+  gpl = "git pull";
 }
