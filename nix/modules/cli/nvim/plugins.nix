@@ -18,26 +18,29 @@ let
 in
 with pkgs.vimPlugins;
 plugins [
-  lazy-nvim
-  tokyonight-nvim
-  lualine-nvim
-  nvim-web-devicons
-  plenary-nvim
-  neo-tree-nvim
-  nui-nvim
-  nvim-autopairs
-  telescope-nvim
-  nvim-treesitter
-  trouble-nvim
-  nvim-lspconfig
-  none-ls-nvim
-  lspsaga-nvim
-  lspkind-nvim
-  luasnip
   cmp-buffer
   cmp-cmdline
   cmp-nvim-lsp
   cmp-path
   cmp_luasnip
+  lazy-nvim
+  lspkind-nvim
+  lspsaga-nvim
+  lualine-nvim
+  luasnip
+  neo-tree-nvim
+  noice-nvim
+  none-ls-nvim
+  nui-nvim
+  nui-nvim
+  nvim-autopairs
   nvim-cmp
+  nvim-lspconfig
+  nvim-notify
+  nvim-treesitter
+  nvim-web-devicons
+  plenary-nvim
+  telescope-nvim
+  tokyonight-nvim
+  trouble-nvim
 ]

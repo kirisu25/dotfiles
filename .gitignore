@@ -7,3 +7,4 @@
 **/.direnv/
 **/.ruff_cache
 config/vim/vimrc
+**/.luarc.json
