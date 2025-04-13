@@ -139,6 +139,7 @@ return {
         "astro",
         "bashls",
         "biome",
+        "gopls",
         "nil_ls",
         "pyright",
         "rubocop",
