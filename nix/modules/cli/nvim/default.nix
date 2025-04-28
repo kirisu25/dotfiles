@@ -22,7 +22,7 @@ let
     nixfmt-rfc-style
     # Python
     pyright
-    ruff-lsp
+    ruff
     # typescript
     nodePackages.typescript-language-server
   ];
