@@ -93,13 +93,12 @@ return {
   {
     name = "remote-nvim.nvim",
     dir = "@remote_nvim_nvim@",
-    event = "VeryLazy",
+    event = "CmdlineEnter",
     dependencies = {
       { name = "telescope.nvim", dir = "@telescope_nvim@",},
       { name = "plenary.nvim", dir = "@plenary_nvim@" },
       { name = "nui.nvim", dir = "@nui_nvim@" },
     },
     config = true,
-    keys = {"Remote", mode = "c", },
   },
 }
