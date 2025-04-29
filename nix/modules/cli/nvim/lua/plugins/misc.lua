@@ -1,4 +1,6 @@
 return {
+    name = "telescope.nvim",
+    dir = "@telescope_nvim@",
   {
     name = "neo-tree.nvim",
     dir = "@neo_tree_nvim@",
@@ -87,5 +89,17 @@ return {
     end,
 
     vim.keymap.set("n", "<LEADER><c-/>", ":ToggleTerm size=10 direction=horizontal<CR>")
+  },
+  {
+    name = "remote-nvim.nvim",
+    dir = "@remote_nvim_nvim@",
+    event = "VeryLazy",
+    dependencies = {
+      { name = "telescope.nvim", dir = "@telescope_nvim@",},
+      { name = "plenary.nvim", dir = "@plenary_nvim@" },
+      { name = "nui.nvim", dir = "@nui_nvim@" },
+    },
+    config = true,
+    keys = {"Remote", mode = "c", },
   },
 }

@@ -40,8 +40,9 @@ plugins [
   nvim-treesitter
   nvim-web-devicons
   plenary-nvim
+  remote-nvim-nvim
   telescope-nvim
+  toggleterm-nvim
   tokyonight-nvim
   trouble-nvim
-  toggleterm-nvim
 ]
