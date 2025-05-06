@@ -52,10 +52,6 @@
   hardware.graphics = {
     enable = true;
   };
-  # hardware.graphics.extraPackages = with pkgs; [
-  #   amdvlk
-  #   rocmPackages.clr.icd
-  # ];
 
   # Load nvidia driver for Xorg & Wayland
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -63,17 +59,6 @@
     "video=DP-2:2560x1440@180"
     "video=HDMI-A-1:1920x1080@60"
   ];
-
-  # hardware.nvidia = {
-  #   # prime = {
-  #   #   nvidiaBusId = "PCI:2:B:0";
-  #   # };
-  #   modesetting.enable = true;
-  #   nvidiaSettings = true;
-  #   open = false;
-  #   powerManagement.enable = false;
-  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
-  # };
 
   networking.hostName = "deskt"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -241,6 +226,9 @@
         setSocketVariable = true;
       };
     };
+    podman = {
+      enable = true;
+    };
     multipass.enable = true;
     virtualbox.host = {
       enable = true;
@@ -269,6 +257,10 @@
     clinfo
     virtualboxKvm
     bottom
+    smartmontools
+    podman-tui
+    docker-compose
+    podman-compose
   ];
 
   # xbox wireless usb dongle
