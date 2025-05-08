@@ -24,7 +24,6 @@
 
   imports = [
     ./waybar
-    # ./ranger
     ./wofi
     ./mako
   ];
@@ -32,6 +31,7 @@
   home.packages =
     (with pkgs; [
       swww
+      brightnessctl
       wl-clipboard
       wlogout
       wireplumber

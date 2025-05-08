@@ -6,7 +6,7 @@
   ];
   home.file.".config/wofi/style.css".text = ''
     window {
-      font-family: "Noto Sans CJK JP";
+      font-family: "HackGen Console NF";
       font-weight: bold;
       margin: 0px;
       border-radius: 10px;

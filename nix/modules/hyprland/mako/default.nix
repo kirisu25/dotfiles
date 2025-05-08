@@ -2,12 +2,12 @@
   services.mako = {
     enable = true;
     actions = true;
-    anchor = "top-center";
+    anchor = "top-right";
     borderRadius = 5;
     borderSize = 2;
     borderColor = "#414868";
     padding = "10";
-    defaultTimeout = 10000;
+    defaultTimeout = 2000;
     layer = "overlay";
     width = 300;
     backgroundColor = "#24283b";
