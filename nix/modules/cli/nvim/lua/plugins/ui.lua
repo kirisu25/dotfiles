@@ -10,9 +10,9 @@ return {
 		},
 		priority = 1000,
 		opts = {
-      style = "moon",
+			style = "moon",
 			transparent = true,
-      tokyonight_dark_float = false,
+			tokyonight_dark_float = false,
 			terminal_colors = true,
 			styles = {
 				sidebars = "transparent",
@@ -46,13 +46,13 @@ return {
 		},
 		config = function()
 			require("noice").setup({
-        presents = {
-          bottom_search = true,
-          command_palette = true,
-          long_message_to_split = true,
-          inc_rename = false,
-          lsp_doc_border = false,
-        },
+				presents = {
+					bottom_search = true,
+					command_palette = true,
+					long_message_to_split = true,
+					inc_rename = false,
+					lsp_doc_border = false,
+				},
 				views = {
 					cmdline_popup = {
 						position = {

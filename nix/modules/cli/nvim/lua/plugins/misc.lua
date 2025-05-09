@@ -1,6 +1,4 @@
 return {
-    name = "telescope.nvim",
-    dir = "@telescope_nvim@",
   {
     name = "neo-tree.nvim",
     dir = "@neo_tree_nvim@",
@@ -72,9 +70,9 @@ return {
   {
     name = "toggleterm.nvim",
     dir = "@toggleterm_nvim@",
-    event = "VeryLazy",
+    keys = { "<c-/>", "<LEADER><C-/>" },
     config = function()
-      require("toggleterm").setup {
+      require("toggleterm").setup({
         close_on_exit = true,
         direction = "float",
         insert_mappings = true,
@@ -85,19 +83,19 @@ return {
         shading_factor = 2,
         size = 100,
         start_in_insert = true,
-      }
+      })
     end,
 
-    vim.keymap.set("n", "<LEADER><c-/>", ":ToggleTerm size=10 direction=horizontal<CR>")
+    vim.keymap.set("n", "<LEADER><c-/>", ":ToggleTerm size=10 direction=horizontal<CR>"),
   },
   {
     name = "remote-nvim.nvim",
     dir = "@remote_nvim_nvim@",
     event = "CmdlineEnter",
     dependencies = {
-      { name = "telescope.nvim", dir = "@telescope_nvim@",},
-      { name = "plenary.nvim", dir = "@plenary_nvim@" },
-      { name = "nui.nvim", dir = "@nui_nvim@" },
+      { name = "telescope.nvim", dir = "@telescope_nvim@" },
+      { name = "plenary.nvim",   dir = "@plenary_nvim@" },
+      { name = "nui.nvim",       dir = "@nui_nvim@" },
     },
     config = true,
   },
