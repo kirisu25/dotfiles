@@ -12,11 +12,10 @@
     shellAliases = import ./alias.nix;
 
     history.size = 100000;
+    history.findNoDups = true;
+    history.saveNoDups = true;
 
-    initExtra = ''
-      # history
-      setopt hist_ignore_dups
-
+    initContent = ''
       # nix
       export NIXPKGS_ALLOW_UNFREE=1
 
