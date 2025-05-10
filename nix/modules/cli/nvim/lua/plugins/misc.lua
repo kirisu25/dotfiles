@@ -125,7 +125,7 @@ return {
               command = { "zsh" },
             },
             python = {
-              command = { "python3" },
+              command = { "ipython", "--no-autoindent" },
               format = common.bracketed_paste_python,
               block_dividers = { "# %%", "#%%" },
             },
