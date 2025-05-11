@@ -69,6 +69,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
