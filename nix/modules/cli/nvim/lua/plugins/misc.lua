@@ -10,7 +10,7 @@ return {
     cmd = { "Neotree" },
     init = function()
       vim.g.neo_tree_remove_lagacy_commands = 1
-      vim.keymap.set("n", "<LEADER>e", ":Neotree toggle<CR>")
+      vim.keymap.set("n", "<LEADER>e", ":Neotree toggle<CR>", {desc = "Neotree"})
     end,
     config = true,
   },
@@ -44,10 +44,10 @@ return {
         builtin.help_tags(themes.get_ivy())
       end
 
-      vim.keymap.set("n", "<LEADER>ff", builtin.find_files, {})
-      vim.keymap.set("n", "<LEADER>fg", builtin.live_grep, {})
-      vim.keymap.set("n", "<LEADER>fb", builtin.buffers, {})
-      vim.keymap.set("n", "<LEADER>fh", helpTags, {})
+      vim.keymap.set("n", "<LEADER>ff", builtin.find_files)
+      vim.keymap.set("n", "<LEADER>fg", builtin.live_grep)
+      vim.keymap.set("n", "<LEADER>fb", builtin.buffers)
+      vim.keymap.set("n", "<LEADER>fh", helpTags)
 
       telescope.setup({
         defaults = {
@@ -140,10 +140,11 @@ return {
         ignore_blank_lines = true,
       })
       -- ここに上記のsetupの記述が入る。
-      vim.keymap.set("n", "<leader>rs", "<cmd>IronRepl<cr>", { desc = "Start Repl" })
-      vim.keymap.set("n", "<leader>rr", "<cmd>IronRestart<cr>", { desc = "Restart Repl" })
-      vim.keymap.set("n", "<leader>rF", "<cmd>IronFocus<cr>", { desc = "Focus Repl" })
-      vim.keymap.set("n", "<leader>rh", "<cmd>IronHide<cr>", { desc = "Hide Repl" })
+      vim.keymap.set("n", "<leader>rs", "<cmd>IronRepl<cr><ESC>", { desc = "Start Repl" })
+      vim.keymap.set("n", "<leader>rR", "<cmd>IronRestart<cr><ESC>", { desc = "Restart Repl" })
+      vim.keymap.set("n", "<leader>rF", "<cmd>IronFocus<cr><ESC>", { desc = "Focus Repl" })
+      vim.keymap.set("n", "<leader>rh", "<cmd>IronHide<cr><ESC>", { desc = "Hide Repl" })
+      -- vim.keymap.set("n", "<leader>rr", core.toggle_repl, { desc = "toggle REPL" })
       vim.keymap.set("n", "<leader>rc", core.send_motion, { desc = "Send motion" })
       vim.keymap.set("n", "<leader>rf", core.send_file, { desc = "Send file" })
       vim.keymap.set("n", "<leader>rl", core.send_line, { desc = "Send line" })
