@@ -10,7 +10,7 @@ return {
     cmd = { "Neotree" },
     init = function()
       vim.g.neo_tree_remove_lagacy_commands = 1
-      vim.keymap.set("n", "<LEADER>e", ":Neotree toggle<CR>", {desc = "Neotree"})
+      vim.keymap.set("n", "<LEADER>e", ":Neotree toggle<CR>", { desc = "Neotree" })
     end,
     config = true,
   },
@@ -44,10 +44,10 @@ return {
         builtin.help_tags(themes.get_ivy())
       end
 
-      vim.keymap.set("n", "<LEADER>ff", builtin.find_files)
-      vim.keymap.set("n", "<LEADER>fg", builtin.live_grep)
-      vim.keymap.set("n", "<LEADER>fb", builtin.buffers)
-      vim.keymap.set("n", "<LEADER>fh", helpTags)
+      vim.keymap.set("n", "<LEADER>ff", builtin.find_files, { desc = "find files" })
+      vim.keymap.set("n", "<LEADER>fg", builtin.live_grep, { desc = "live grep" })
+      vim.keymap.set("n", "<LEADER>fb", builtin.buffers, { desc = "find buffers" })
+      vim.keymap.set("n", "<LEADER>fh", helpTags, { desc = "Help tags" })
 
       telescope.setup({
         defaults = {
@@ -86,7 +86,7 @@ return {
       })
     end,
 
-    vim.keymap.set("n", "<LEADER><c-/>", ":ToggleTerm size=10 direction=horizontal<CR>"),
+    vim.keymap.set("n", "<LEADER><c-/>", ":ToggleTerm size=30 direction=horizontal<CR>"),
   },
   {
     name = "remote-nvim.nvim",
@@ -134,7 +134,8 @@ return {
             return ft
           end,
 
-          repl_open_cmd = view.split.vertical.botright(40),
+          repl_open_cmd = view.split.vertical.botright("40%"),
+          -- repl_open_cmd = view.bottom("40%"),
         },
         highlight = { italic = true },
         ignore_blank_lines = true,
