@@ -18,3 +18,6 @@ cursor-style-blink = false
 # Other
 mouse-hide-while-typing = true
 resize-overlay = never
+
+# keybind
+keybind = ctrl+enter=unbind
