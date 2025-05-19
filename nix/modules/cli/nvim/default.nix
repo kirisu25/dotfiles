@@ -4,7 +4,7 @@ let
     deno
     lazygit
     ripgrep
-    nodejs_23
+    nodejs_22
   ];
   lsp = with pkgs; [
     # bash

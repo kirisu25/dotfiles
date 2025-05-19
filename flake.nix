@@ -13,10 +13,10 @@
     xremap.url = "github:xremap/nix-flake";
 
     # Rust toolchain
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # fenix = {
+    #   url = "github:nix-community/fenix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
@@ -62,7 +62,7 @@
           system = "x86_64-linux";
           config.allowUnfree = true;
           overlays = [
-            inputs.fenix.overlays.default
+            # inputs.fenix.overlays.default
             inputs.poetry2nix.overlays.default
           ];
         };
@@ -79,7 +79,7 @@
           system = "x86_64-linux";
           config.allowUnfree = true;
           overlays = [
-            inputs.fenix.overlays.default
+            # inputs.fenix.overlays.default
             inputs.poetry2nix.overlays.default
           ];
         };
