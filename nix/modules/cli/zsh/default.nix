@@ -1,9 +1,9 @@
-# { ... }:
+{ config, ... }:
 {
   imports = [ ./starship ];
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.home.homeDirectory}/.config/zsh";
     autocd = true;
     enableCompletion = true;
     autosuggestion.enable = true;
