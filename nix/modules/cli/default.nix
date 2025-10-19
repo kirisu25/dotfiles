@@ -9,6 +9,6 @@
     ./direnv.nix
     ./yazi
     ./zellij
-    # ./nvim
+    ./nvim
   ];
 }

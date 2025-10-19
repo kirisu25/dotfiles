@@ -10,7 +10,7 @@
     userEmail = "kirisu25@gmail.com";
 
     extraConfig = {
-      core.editor = "hx";
+      core.editor = "nvim";
       color = {
         status = "auto";
         diff = "auto";

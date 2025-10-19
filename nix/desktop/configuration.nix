@@ -10,15 +10,14 @@
 }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ]
-    ++ (with inputs.nixos-hardware.nixosModules; [
-      common-pc-ssd
-      common-cpu-amd
-      common-gpu-amd
-    ]);
+  imports = [
+    ./hardware-configuration.nix
+  ]
+  ++ (with inputs.nixos-hardware.nixosModules; [
+    common-pc-ssd
+    common-cpu-amd
+    common-gpu-amd
+  ]);
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
@@ -208,6 +207,7 @@
       dedicatedServer.openFirewall = true;
     };
   };
+
   # font override to steam
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
@@ -262,6 +262,8 @@
     podman-tui
     docker-compose
     podman-compose
+    gemini-cli
+    ollama
   ];
 
   # xbox wireless usb dongle

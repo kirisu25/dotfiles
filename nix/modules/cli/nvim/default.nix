@@ -12,7 +12,7 @@ let
     shellcheck
     shfmt
     #docker
-    nodePackages.dockerfile-language-server-nodejs
+    dockerfile-language-server
     docker-compose-language-service
     # lua
     lua-language-server
@@ -54,10 +54,22 @@ let
       zig
     ];
   plugins = import ./plugins.nix { inherit pkgs; };
+
+  # A lenient substitution function that mimics the old `substituteAll` behavior
+  # by ignoring patterns that are not found in the file.
+  lenientSubstitute = file: vars: pkgs.writeText (builtins.baseNameOf file) (
+    pkgs.lib.foldl (acc: name:
+      let
+        value = builtins.getAttr name vars;
+        # Coerce derivations to their store path string representation.
+        stringValue = if pkgs.lib.isDerivation value then "${value}" else value;
+      in pkgs.lib.replaceStrings [ "@${name}@" ] [ stringValue ] acc
+    ) (builtins.readFile file) (builtins.attrNames vars)
+  );
+
   configFile = file: {
-    "nvim/${file}".source = pkgs.substituteAll (
+    "nvim/${file}".source = lenientSubstitute (./. + "/${file}") (
       {
-        src = ./. + "/${file}";
         ts_parser_dirs = pkgs.lib.pipe (pkgs.vimPlugins.nvim-treesitter.withPlugins parsers).dependencies [
           (map toString)
           (builtins.concatStringsSep ",")
