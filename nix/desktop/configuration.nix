@@ -230,13 +230,13 @@
     podman = {
       enable = true;
     };
-    multipass.enable = true;
-    virtualbox.host = {
-      enable = true;
-      enableKvm = true;
-      enableHardening = false;
-      addNetworkInterface = false;
-    };
+    # multipass.enable = true;
+    # virtualbox.host = {
+    #   enable = true;
+    #   enableKvm = true;
+    #   enableHardening = false;
+    #   addNetworkInterface = false;
+    # };
   };
   users.extraGroups.vboxusers.members = [ "kirisu25" ];
 
@@ -274,7 +274,7 @@
     settings = {
       default_session = {
         command = ''
-          				${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland
+          				${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland
           			'';
       };
     };
