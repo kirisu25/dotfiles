@@ -266,6 +266,16 @@
     ollama
   ];
 
+  #ollama
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    # environmentVariables = {
+    #   HCC_AMDGPU_TARGET = "gfx1101";
+    # };
+    # loadModels = ["gpt-oss:latest" "gemma3:12b"];
+  };
+
   # xbox wireless usb dongle
   hardware.xone.enable = true;
 
