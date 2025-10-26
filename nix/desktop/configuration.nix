@@ -8,7 +8,12 @@
   pkgs,
   ...
 }:
-
+let
+  pkgs-stable = import inputs.nixpkgs-stable {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -22,7 +27,7 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   # kernel
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs-stable.linuxPackages;
 
   nix = {
     settings = {
@@ -50,14 +55,20 @@
   # gup
   hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [ mesa ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ mesa ];
   };
 
-  # Load nvidia driver for Xorg & Wayland
+  # Enable firmware for amdgpu, etc.
+  # This is necessary to avoid errors like "Trying to push to a killed entity".
+  hardware.enableRedistributableFirmware = true;
+
+  # Load amdgpu driver for Xorg & Wayland
   services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.kernelParams = [
-    "video=DP-2:2560x1440@180"
-    "video=HDMI-A-1:1920x1080@60"
-  ];
+  # boot.kernelParams = [
+  #   "video=DP-2:2560x1440@180"
+  #   "video=HDMI-A-1:1920x1080@60"
+  # ];
 
   networking.hostName = "deskt"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -68,7 +79,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
@@ -94,7 +105,7 @@
     fcitx5.addons = [ pkgs.fcitx5-mozc ];
     fcitx5.waylandFrontend = true;
   };
-  services.xserver.desktopManager.runXdgAutostartIfNone = true;
+  # services.xserver.desktopManager.runXdgAutostartIfNone = true;
 
   fonts.packages = with pkgs; [
     noto-fonts-cjk-serif
@@ -238,7 +249,7 @@
     #   addNetworkInterface = false;
     # };
   };
-  users.extraGroups.vboxusers.members = [ "kirisu25" ];
+  # users.extraGroups.vboxusers.members = [ "kirisu25" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -248,7 +259,7 @@
     wofi
     pavucontrol
     mako
-    linuxKernel.packages.linux_zen.xone
+        pkgs-stable.linuxPackages.xone
     wineWowPackages.stable
     # wineWowPackages.waylandFull
     winetricks
@@ -275,9 +286,6 @@
     # };
     # loadModels = ["gpt-oss:latest" "gemma3:12b"];
   };
-
-  # xbox wireless usb dongle
-  hardware.xone.enable = true;
 
   services.greetd = {
     enable = true;

@@ -7,7 +7,12 @@
   pkgs,
   ...
 }:
-
+let
+  pkgs-stable = import inputs.nixpkgs-stable {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
+in
 {
   imports =
     [
@@ -44,7 +49,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs-stable.linuxPackages;
 
   networking.hostName = "x1carbon"; # Define your hostname.
 
