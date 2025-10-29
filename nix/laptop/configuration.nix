@@ -14,17 +14,16 @@ let
   };
 in
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ]
-    ++ (with inputs.nixos-hardware.nixosModules; [
-      common-pc-ssd
-      common-cpu-intel
-    ])
-    ++ [
-      inputs.xremap.nixosModules.default
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ]
+  ++ (with inputs.nixos-hardware.nixosModules; [
+    common-pc-ssd
+    common-cpu-intel
+  ])
+  ++ [
+    inputs.xremap.nixosModules.default
+  ];
 
   nix = {
     settings = {
@@ -61,6 +60,7 @@ in
   # Enable bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.uinput.enable = true;
   services.blueman.enable = true;
 
   # Set your time zone.
@@ -140,6 +140,7 @@ in
 
   # xremap
   services.xremap = {
+    enable = true;
     userName = "kirisu25";
     serviceMode = "system";
     config = {
@@ -251,6 +252,7 @@ in
     wofi
     pavucontrol
     mako
+    gemini-cli
   ];
 
   services.greetd = {
