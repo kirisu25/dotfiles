@@ -15,7 +15,7 @@
   home.packages = with pkgs; [
     jq
     jellyfin-ffmpeg
-    poppler_utils
+    poppler-utils
     fd
     ripgrep
     fzf
