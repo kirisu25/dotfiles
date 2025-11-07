@@ -57,6 +57,9 @@ in
   # networking.wireless.enable = true;
   networking.wireless.userControlled.enable = true;
 
+  # Enable microcode update
+  hardware.cpu.intel.updateMicrocode = true;
+
   # Enable bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

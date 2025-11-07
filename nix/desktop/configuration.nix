@@ -79,7 +79,10 @@ in
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
+  # networking.firewall.enable = true;
+
+  # Enable microcode update
+  hardware.cpu.amd.updateMicrocode = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
