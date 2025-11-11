@@ -56,7 +56,7 @@ in
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ mesa ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [ mesa ];
+    # extraPackages32 = with pkgs.pkgsi686Linux; [ mesa ];
   };
 
   # Enable firmware for amdgpu, etc.
@@ -262,7 +262,7 @@ in
     wofi
     pavucontrol
     mako
-        pkgs-stable.linuxPackages.xone
+    pkgs-stable.linuxPackages.xone
     wineWowPackages.stable
     # wineWowPackages.waylandFull
     winetricks
