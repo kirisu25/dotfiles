@@ -8,10 +8,10 @@
     # ])
 
     # Go
-    go
+    # go
 
     # JS/TS
-    nodejs-slim
-    deno
+    # nodejs-slim
+    # deno
   ];
 }
