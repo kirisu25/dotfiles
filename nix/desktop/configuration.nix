@@ -79,7 +79,8 @@ in
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # networking.firewall.enable = true;
+  networking.wireless.enable = false;
+  networking.firewall.enable = true;
 
   # Enable microcode update
   hardware.cpu.amd.updateMicrocode = true;
