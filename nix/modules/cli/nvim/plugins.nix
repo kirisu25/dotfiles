@@ -19,11 +19,11 @@ in
 with pkgs.vimPlugins;
 plugins [
   cmp-buffer
-  which-key-nvim
   cmp-cmdline
   cmp-nvim-lsp
   cmp-path
   cmp_luasnip
+  iron-nvim
   lazy-nvim
   lspkind-nvim
   lspsaga-nvim
@@ -43,8 +43,8 @@ plugins [
   plenary-nvim
   remote-nvim-nvim
   telescope-nvim
-  iron-nvim
   toggleterm-nvim
   tokyonight-nvim
   trouble-nvim
+  which-key-nvim
 ]
