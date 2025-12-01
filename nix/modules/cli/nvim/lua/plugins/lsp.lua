@@ -145,14 +145,20 @@ return {
         },
       })
 
+      vim.lsp.config("rust_analyzer", {
+        setings = {
+          ['rust-analyzer'] = {
+            diagnostics = {
+              enable = false;
+            }
+          }
+        }
+      })
+
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("nil_ls")
       vim.lsp.enable("gopls")
-      vim.lsp.enable("rust-analyzer", {
-        settings = {
-          ["rust-analyzer"] = {},
-        },
-      })
+      vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("zls")
     end,
   },
