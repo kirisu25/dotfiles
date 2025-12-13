@@ -278,13 +278,13 @@ in
     docker-compose
     podman-compose
     gemini-cli
-    ollama
+    ollama-rocm
   ];
 
   #ollama
   services.ollama = {
     enable = true;
-    acceleration = "rocm";
+    # acceleration = "rocm";
     # environmentVariables = {
     #   HCC_AMDGPU_TARGET = "gfx1101";
     # };
