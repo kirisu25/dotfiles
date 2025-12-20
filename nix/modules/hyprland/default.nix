@@ -26,6 +26,7 @@
     ./waybar
     ./wofi
     ./mako
+    ./quickshell
   ];
 
   home.packages =
