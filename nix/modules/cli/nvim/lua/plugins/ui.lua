@@ -93,4 +93,13 @@ return {
 			})
 		end,
 	},
+
+	{
+		name = "nvim-colorizer.lua",
+		dir = "@nvim_colorizer_lua@",
+		event = "BufReadPre",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 }

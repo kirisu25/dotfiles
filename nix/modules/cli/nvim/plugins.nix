@@ -36,6 +36,7 @@ plugins [
   nui-nvim
   nvim-autopairs
   nvim-cmp
+  nvim-colorizer-lua
   nvim-lspconfig
   nvim-notify
   nvim-treesitter
