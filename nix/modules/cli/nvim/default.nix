@@ -5,6 +5,7 @@ let
     lazygit
     ripgrep
     nodejs_22
+    kdePackages.qtdeclarative
   ];
   lsp = with pkgs; [
     # bash

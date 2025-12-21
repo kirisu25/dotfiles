@@ -147,17 +147,18 @@ return {
 
       vim.lsp.config("rust_analyzer", {
         setings = {
-          ['rust-analyzer'] = {
+          ["rust-analyzer"] = {
             diagnostics = {
-              enable = false;
-            }
-          }
-        }
+              enable = false,
+            },
+          },
+        },
       })
 
+      vim.lsp.enable("gopls")
       vim.lsp.enable("lua_ls")
       vim.lsp.enable("nil_ls")
-      vim.lsp.enable("gopls")
+      -- vim.lsp.enable("qmlls")
       vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("zls")
     end,
@@ -171,11 +172,12 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.diagnostics.hadolint,
-          null_ls.builtins.formatting.nixfmt,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.shfmt,
           null_ls.builtins.formatting.gofmt,
-          -- null_ls.builtins.formatting.rustfmt,
+          null_ls.builtins.formatting.nixfmt,
+          null_ls.builtins.formatting.qmlformat,
+          null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.rustfmt,
         },
       })
     end,
