@@ -27,7 +27,8 @@ in
   system.stateVersion = "24.05"; # Did you read the comment?
 
   # kernel
-  boot.kernelPackages = pkgs-stable.linuxPackages;
+  # boot.kernelPackages = pkgs-stable.linuxPackages;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   nix = {
     settings = {
