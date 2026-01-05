@@ -6,5 +6,6 @@
     ./wezterm
     ./alacritty.nix
     ./ghostty
+    ./wave.nix
   ];
 }
