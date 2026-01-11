@@ -264,7 +264,8 @@ in
     wofi
     pavucontrol
     mako
-    pkgs-stable.linuxPackages.xone
+    # pkgs-stable.linuxPackages.xone
+    xow_dongle-firmware
     wineWowPackages.stable
     # wineWowPackages.waylandFull
     winetricks
